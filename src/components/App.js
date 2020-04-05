@@ -1,23 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import NavigationBar from './NavigationBar'
-import Slider from './Slider'
-import WelcomeInfo from './WelcomeInfo'
-import Manual from './Manual'
+import Home from './Home'
+import LoginForm from './LoginForm'
+import RegisterForm from './RegisterForm'
 import Footer from './Footer'
 import '../styles/app.css'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
 class App extends React.Component {
 
     render() {
         return (
+            <Router>
             <div>
                 <NavigationBar/>
-                <Slider/>
-                <WelcomeInfo/>
-                <Manual/>
+                <Switch>
+                <Route path="/" exact component={Home}/>
+                <Route path="/logowanie" component={LoginForm}/>
+                <Route path="/rejestracja" component={RegisterForm}/>
+                </Switch>
                 <Footer/>
             </div>
+            </Router>
         )
     }
 }
