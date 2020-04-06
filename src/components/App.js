@@ -4,6 +4,7 @@ import NavigationBar from './NavigationBar'
 import Home from './Home'
 import LoginForm from './LoginForm'
 import RegisterForm from './RegisterForm'
+import ProfileBoard from './ProfileBoard'
 import Footer from './Footer'
 import '../styles/app.css'
 import {
@@ -24,6 +25,7 @@ class App extends React.Component {
                 <Route path="/" exact component={Home}/>
                 <Route path="/logowanie" component={LoginForm}/>
                 <Route path="/rejestracja" component={RegisterForm}/>
+                <Route path="/profile" component={ProfileBoard}/>
                 </Switch>
                 <Footer/>
             </div>
