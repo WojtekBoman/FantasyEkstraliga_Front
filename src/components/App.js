@@ -1,18 +1,26 @@
+//IMPORT REACT 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import NavigationBar from './NavigationBar'
-import Home from './Home'
-import LoginForm from './LoginForm'
-import RegisterForm from './RegisterForm'
-import ProfileBoard from './ProfileBoard'
-import Footer from './Footer'
-import '../styles/app.css'
 import {
     BrowserRouter as Router,
     Switch,
     Route,
     Link
   } from "react-router-dom";
+
+//IMPORT COMPONENTS
+import NavigationBar from './NavigationBar'
+import Home from './Home'
+import LoginForm from './LoginForm'
+import RegisterForm from './RegisterForm'
+import ProfileBoard from './ProfileBoard'
+import TeamBuilder from './TeamBuilder'
+import TeamBuilderTable from './TeamBuilderTable'
+import Footer from './Footer'
+
+//IMPORT CSS
+import '../styles/app.css'
+
 
 class App extends React.Component {
 
@@ -26,6 +34,8 @@ class App extends React.Component {
                 <Route path="/logowanie" component={LoginForm}/>
                 <Route path="/rejestracja" component={RegisterForm}/>
                 <Route path="/profile" component={ProfileBoard}/>
+                <Route path="/teamBuilder" component={TeamBuilder}/>
+                <Route path="/teamBuilderTable" component={TeamBuilderTable}/>
                 </Switch>
                 <Footer/>
             </div>
