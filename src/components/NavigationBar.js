@@ -57,6 +57,9 @@ class NavigationBar extends React.Component {
                         <Link to={"/teamBuilder"} className="dropdown-item">Widok podstawowy</Link>
                     </div>
                   </li>
+                  <Link to="/transferMarket" className="nav-link" >
+                        <li className="nav-item">Transfery</li>
+                    </Link>
                     <Link to="/profile" className="nav-link" >
                         <li className="nav-item">{currentUser.login}</li>
                     </Link>
