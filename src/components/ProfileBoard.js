@@ -6,7 +6,7 @@ class ProfileBoard extends React.Component {
 
     constructor(props) {
         super(props);
-        console.log(AuthService.getCurrentUser());
+        console.log("Current user :",AuthService.getCurrentUser());
 
         this.state = {
             currentUser: AuthService.getCurrentUser()

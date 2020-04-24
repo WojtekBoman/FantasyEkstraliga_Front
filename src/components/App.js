@@ -19,6 +19,7 @@ import TeamBuilderTable from './TeamBuilderTable'
 import RiderDetails from './RiderDetails'
 import Footer from './Footer'
 import TransferMarket from './TransferMarket';
+import TeamCreator from './TeamCreator'
 
 
 //IMPORT CSS
@@ -29,6 +30,9 @@ import '../styles/app.css'
 class App extends React.Component {
 
     render() {
+
+        console.log(JSON.parse(localStorage.getItem('player')));
+
         return (
             <Router>
             <div>
@@ -42,6 +46,7 @@ class App extends React.Component {
                 <Route path="/riderDetails/:id" component={RiderDetails}/>
                 <Route path="/transferMarket" component={TransferMarket}/>
                 <Route path="/teamBuilderTable" component={TeamBuilderTable}/>
+                <Route path="/teamCreator" component={TeamCreator}/>
                 </Switch>
                 <Footer/>
             </div>
