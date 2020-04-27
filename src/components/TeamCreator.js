@@ -51,29 +51,44 @@ class TeamCreator extends React.Component {
           };
 
 
-          fetch(url,options).then(res => res.text()).then(res => console.log(res));
+         
 
         if (this.checkBtn.context._errors.length === 0){
-            TeamService.createTeam(this.state.teamName).then(
-                (res) => {
-                  window.location.reload();
-                  console.log(res);
-                },
-                error => {
-                  const resMessage =
-                    (error.response &&
-                      error.response.data &&
-                      error.response.data.message) ||
-                    error.message ||
-                    error.toString();
+          fetch(url,options).then(res => res.text()).then(res => this.setState({message:res}))
+          .catch(error => {
+            const resMessage =
+              (error.response &&
+                error.response.data &&
+                error.response.data.message) ||
+              error.message ||
+              error.toString();
+  
+            this.setState({
+              loading: false,
+              message: resMessage
+            });
+      
+          } );
+            // TeamService.createTeam(this.state.teamName).then(
+            //     (res) => {
+            //       window.location.reload();
+            //       console.log(res);
+            //     },
+            //     error => {
+            //       const resMessage =
+            //         (error.response &&
+            //           error.response.data &&
+            //           error.response.data.message) ||
+            //         error.message ||
+            //         error.toString();
         
-                  this.setState({
-                    loading: false,
-                    message: resMessage
-                  });
+            //       this.setState({
+            //         loading: false,
+            //         message: resMessage
+            //       });
             
-                }
-            );
+            //     }
+            // );
             }else{
               this.setState({
                 loading: false

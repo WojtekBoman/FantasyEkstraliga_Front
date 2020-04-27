@@ -1,5 +1,6 @@
 import React from 'react';
 import authHeader from "../services/auth-header"
+import authService from "../services/auth-service"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGlobeEurope } from '@fortawesome/free-solid-svg-icons'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
@@ -17,13 +18,17 @@ class TeamBuilder extends React.Component {
     }
 
     async componentDidMount() {
+        this.setState({team: authService.getCurrentUser().team})
 
+        console.log(this.state.team);
         let url = "http://localhost:8080/teamAthletes";
 
         let options = {
           method: 'GET',
           headers : authHeader()
           };
+
+          
 
 
           fetch(url,options).then(res => res.text()).then(res => console.log(res));

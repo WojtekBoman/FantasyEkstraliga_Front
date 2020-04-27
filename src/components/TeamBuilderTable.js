@@ -1,5 +1,6 @@
 import React from 'react';
 import authHeader from '../services/auth-header'
+import authService from '../services/auth-service'
 
 class TeamBuilderTable extends React.Component {
 
@@ -10,12 +11,14 @@ class TeamBuilderTable extends React.Component {
         this.state = {
           athletes:null,
           loading: true,
-          message:null
+          message:null,
+          team:null
         }
     }
 
     sellAthlete(athleteId) {
 
+      
       this.setState({loading:true});
 
       let url = `http://localhost:8080/sell?athleteId=${athleteId}`;
@@ -29,6 +32,9 @@ class TeamBuilderTable extends React.Component {
     }
 
     async componentDidMount() {
+      this.setState({team: authService.getCurrentUser().team})
+
+      console.log("Team",this.state.team);
 
       let url = "http://localhost:8080/teamAthletes";
 
@@ -47,9 +53,11 @@ class TeamBuilderTable extends React.Component {
     render() {
       console.log("Athletes",this.state.athletes);
         return(
+
             <div className="container bg-light border rounded border-dark" id="tableWindow">
+               {this.state.team}
                 <header>
-                  <h2>Potężne byki</h2>
+                  <h2>Twoja drużyna</h2>
                   {this.state.loading && (<div className="d-inline">
                   <p>Trwa ładowanie ...</p>
                   <span className="spinner-border spinner-border-sm"></span>
@@ -63,7 +71,7 @@ class TeamBuilderTable extends React.Component {
                 <table class="table table-striped">
                   <thead class="thead-dark">
                     <tr>
-                      <th scope='col'>L.p</th>
+                      <th scope='col'>Id</th>
                       <th scope="col">Kraj</th>
                       <th scope="col">Zawodnik</th>
                       <th scope="col">Wartość</th>
@@ -75,7 +83,7 @@ class TeamBuilderTable extends React.Component {
                   <tbody>
                     {this.state.athletes && (this.state.athletes.map(athlete => {
                       return(<tr>
-                        <th scope="row">1</th>
+                        <th scope="row">{athlete.athleteId}</th>
                         <td>{athlete.nationality}</td>
                         <td>{athlete.firstName} {athlete.surname}</td>
                         <td>{athlete.value}</td>
@@ -93,7 +101,7 @@ class TeamBuilderTable extends React.Component {
                 <table class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
-                      <th scope='col'>L.p</th>
+                      <th scope='col'>Id</th>
                       <th scope="col">Kraj</th>
                       <th scope="col">Zawodnik</th>
                       <th scope="col">Wartość</th>
@@ -103,24 +111,6 @@ class TeamBuilderTable extends React.Component {
                     </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                      <th scope="row">1</th>
-                      <td>POL</td>
-                      <td>Piotr Pawlicki</td>
-                      <td>2 mln</td>
-                      <td>Unia Leszno / X-Demon</td>
-                      <td>13</td>
-                      <td><button className="btn btn-primary">Sprzedaj</button></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>POL</td>
-                      <td>Piotr Pawlicki</td>
-                      <td>2 mln</td>
-                      <td>Unia Leszno / X-Demon</td>
-                      <td>13</td>
-                      <td><button className="btn btn-primary">Sprzedaj</button></td>
-                    </tr>
                     </tbody>
                 </table>
 
