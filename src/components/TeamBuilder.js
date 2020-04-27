@@ -1,4 +1,5 @@
 import React from 'react';
+import authHeader from "../services/auth-header"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGlobeEurope } from '@fortawesome/free-solid-svg-icons'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
@@ -10,6 +11,23 @@ class TeamBuilder extends React.Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            team:null
+        }
+    }
+
+    async componentDidMount() {
+
+        let url = "http://localhost:8080/teamAthletes";
+
+        let options = {
+          method: 'GET',
+          headers : authHeader()
+          };
+
+
+          fetch(url,options).then(res => res.text()).then(res => console.log(res));
+        
     }
 
     render() {
@@ -20,6 +38,7 @@ class TeamBuilder extends React.Component {
                         <header>
                             <h2>Potężne byki</h2>
                             <hr className="my-4"/>
+                           
                         </header>
                         <button className="btn btn-primary btn-block">Kup zawodnika</button>
                         <br/>

@@ -4,6 +4,7 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 
 import TeamService from '../services/team-service';
+import authHeader from '../services/auth-header';
 
 
 const required = value => {
@@ -42,6 +43,16 @@ class TeamCreator extends React.Component {
 
         this.form.validateAll();
 
+        let url = `http://localhost:8080/createTeam?teamName=${this.state.teamName}`;
+
+        let options = {
+          method: 'POST',
+          headers : authHeader()
+          };
+
+
+          fetch(url,options).then(res => res.text()).then(res => console.log(res));
+
         if (this.checkBtn.context._errors.length === 0){
             TeamService.createTeam(this.state.teamName).then(
                 (res) => {
@@ -73,8 +84,10 @@ class TeamCreator extends React.Component {
 
     render() {
 
+        
+
         return (
-            <div className="container bg-light border rounded border-dark" id="teamCreator">
+            <div className="container bg-light border rounded border-dark" id="teamcreatorForm">
                 <header className="text-center">
                     <h2 className="display-4">To już ostatnia prosta !</h2>
                     <hr className="my-4" />

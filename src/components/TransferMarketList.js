@@ -1,5 +1,6 @@
 import React from 'react';
 import athleteService from '../services/athlete-service';
+import authHeader from '../services/auth-header';
 import { Link } from "react-router-dom";
 
 const useSortableData = (items, config = null) => {
@@ -55,6 +56,17 @@ const getClub = (club, tab) => {
   }
 }
 
+const buyAthlete = (athleteId) => {
+  let url = `http://localhost:8080/buy?athleteId=${athleteId}`;
+
+        let options = {
+          method: 'POST',
+          headers : authHeader()
+          };
+
+
+          fetch(url,options).then(res => res.text()).then(res => console.log(res));
+}
 
 const TransferMarketList = (props) => {
 
@@ -96,7 +108,7 @@ const TransferMarketList = (props) => {
             <td>{getClub(item.club, clubs)}</td>
             <td>{item.category}</td>
             <td>{item.points}</td>
-            <td><button className="btn btn-primary">Kup</button></td>
+            <td><button className="btn btn-primary" onClick={() =>buyAthlete(item.athleteId)}>Kup</button></td>
             <td><Link to={"riderDetails/" + item.athleteId}><button className="btn btn-primary">Więcej</button></Link></td>
 
           </tr>
