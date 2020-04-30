@@ -2,6 +2,7 @@ import React from 'react';
 import athleteService from '../services/athlete-service';
 import authHeader from '../services/auth-header';
 import { Link } from "react-router-dom";
+import TransferMarketListClick from './TransferMarketListClick';
 
 const useSortableData = (items, config = null) => {
   const [sortConfig, setSortConfig] = React.useState(config);
@@ -56,17 +57,7 @@ const getClub = (club, tab) => {
   }
 }
 
-const buyAthlete = (athleteId) => {
-  let url = `http://localhost:8080/buy?athleteId=${athleteId}`;
 
-        let options = {
-          method: 'POST',
-          headers : authHeader()
-          };
-
-
-          fetch(url,options).then(res => res.text()).then(res => console.log(res));
-}
 
 const TransferMarketList = (props) => {
 
@@ -94,7 +85,7 @@ const TransferMarketList = (props) => {
           <th scope="col" onClick={() => requestSort('club')} ClassName={getClassNamesFor('club')}>Klub</th>
           <th scope="col" onClick={() => requestSort('category')} ClassName={getClassNamesFor('category')}>Kategoria</th>
           <th scope="col" onClick={() => requestSort('points')} ClassName={getClassNamesFor('points')}>Punkty</th>
-          <th scope="col">Akcje//</th>
+          <th scope="col">Akcje</th>
           <th scope="col">Info</th>
         </tr>
       </thead>
@@ -108,7 +99,7 @@ const TransferMarketList = (props) => {
             <td>{getClub(item.club, clubs)}</td>
             <td>{item.category}</td>
             <td>{item.points}</td>
-            <td><button className="btn btn-primary" onClick={() =>buyAthlete(item.athleteId)}>Kup</button></td>
+            <td className="d-flex align-items-center row justify-content  "><TransferMarketListClick rider_id={item.athleteId}/></td>
             <td><Link to={"riderDetails/" + item.athleteId}><button className="btn btn-primary">Więcej</button></Link></td>
 
           </tr>

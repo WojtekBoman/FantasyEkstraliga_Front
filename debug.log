@@ -2,3 +2,49 @@
 [0423/094041.593:ERROR:crash_report_database_win.cc(445)] failed to read records
 [0423/124017.562:ERROR:file_io.cc(89)] ReadExactly: expected 1288, observed 0
 [0423/124017.562:ERROR:crash_report_database_win.cc(445)] failed to read records
+[0430/095249.189:ERROR:file_io.cc(89)] ReadExactly: expected 1288, observed 0
+[0430/095249.190:ERROR:crash_report_database_win.cc(445)] failed to read records
+[0430/100249.190:ERROR:file_io.cc(89)] ReadExactly: expected 1288, observed 0
+[0430/100249.191:ERROR:crash_report_database_win.cc(445)] failed to read records
+[0430/100249.191:ERROR:file_io.cc(89)] ReadExactly: expected 1288, observed 0
+[0430/100249.191:ERROR:crash_report_database_win.cc(445)] failed to read records
+[0430/100749.190:ERROR:file_io.cc(89)] ReadExactly: expected 1288, observed 0
+[0430/100749.190:ERROR:crash_report_database_win.cc(445)] failed to read records
+[0430/100819.563:ERROR:file_io.cc(89)] ReadExactly: expected 1288, observed 0
+[0430/100819.563:ERROR:crash_report_database_win.cc(445)] failed to read records
+[0430/102249.192:ERROR:file_io.cc(89)] ReadExactly: expected 1288, observed 0
+[0430/102249.192:ERROR:crash_report_database_win.cc(445)] failed to read records
+[0430/103749.194:ERROR:file_io.cc(89)] ReadExactly: expected 1288, observed 0
+[0430/103749.194:ERROR:crash_report_database_win.cc(445)] failed to read records
+[0430/105249.195:ERROR:file_io.cc(89)] ReadExactly: expected 1288, observed 0
+[0430/105249.195:ERROR:crash_report_database_win.cc(445)] failed to read records
+[0430/110749.195:ERROR:file_io.cc(89)] ReadExactly: expected 1288, observed 0
+[0430/110749.195:ERROR:crash_report_database_win.cc(445)] failed to read records
+[0430/112249.197:ERROR:file_io.cc(89)] ReadExactly: expected 1288, observed 0
+[0430/112249.197:ERROR:crash_report_database_win.cc(445)] failed to read records
+[0430/113749.198:ERROR:file_io.cc(89)] ReadExactly: expected 1288, observed 0
+[0430/113749.198:ERROR:crash_report_database_win.cc(445)] failed to read records
+[0430/115249.198:ERROR:file_io.cc(89)] ReadExactly: expected 1288, observed 0
+[0430/115249.198:ERROR:crash_report_database_win.cc(445)] failed to read records
+[0430/120749.199:ERROR:file_io.cc(89)] ReadExactly: expected 1288, observed 0
+[0430/120749.199:ERROR:crash_report_database_win.cc(445)] failed to read records
+[0430/122249.200:ERROR:file_io.cc(89)] ReadExactly: expected 1288, observed 0
+[0430/122249.200:ERROR:crash_report_database_win.cc(445)] failed to read records
+[0430/123749.200:ERROR:file_io.cc(89)] ReadExactly: expected 1288, observed 0
+[0430/123749.200:ERROR:crash_report_database_win.cc(445)] failed to read records
+[0430/125249.200:ERROR:file_io.cc(89)] ReadExactly: expected 1288, observed 0
+[0430/125249.200:ERROR:crash_report_database_win.cc(445)] failed to read records
+[0430/130749.200:ERROR:file_io.cc(89)] ReadExactly: expected 1288, observed 0
+[0430/130749.200:ERROR:crash_report_database_win.cc(445)] failed to read records
+[0430/132249.201:ERROR:file_io.cc(89)] ReadExactly: expected 1288, observed 0
+[0430/132249.201:ERROR:crash_report_database_win.cc(445)] failed to read records
+[0430/133749.201:ERROR:file_io.cc(89)] ReadExactly: expected 1288, observed 0
+[0430/133749.201:ERROR:crash_report_database_win.cc(445)] failed to read records
+[0430/135249.202:ERROR:file_io.cc(89)] ReadExactly: expected 1288, observed 0
+[0430/135249.202:ERROR:crash_report_database_win.cc(445)] failed to read records
+[0430/140749.202:ERROR:file_io.cc(89)] ReadExactly: expected 1288, observed 0
+[0430/140749.202:ERROR:crash_report_database_win.cc(445)] failed to read records
+[0430/142249.203:ERROR:file_io.cc(89)] ReadExactly: expected 1288, observed 0
+[0430/142249.203:ERROR:crash_report_database_win.cc(445)] failed to read records
+[0430/143749.203:ERROR:file_io.cc(89)] ReadExactly: expected 1288, observed 0
+[0430/143749.203:ERROR:crash_report_database_win.cc(445)] failed to read records

@@ -1,6 +1,7 @@
 import React from 'react';
 import authHeader from '../services/auth-header'
 import authService from '../services/auth-service'
+import TransferMarketListModal from './TransferMarketListModal';
 
 class TeamBuilderTable extends React.Component {
 
@@ -12,7 +13,8 @@ class TeamBuilderTable extends React.Component {
           athletes:null,
           loading: true,
           message:null,
-          team:null
+          team:null,
+          // addModalShow: false,
         }
     }
 
@@ -29,6 +31,7 @@ class TeamBuilderTable extends React.Component {
         };
 
         fetch(url,options).then(res => res.text()).then(res => this.setState({message:res,loading:false})).then(() => window.location.reload());
+        // this.setState({addModalShow:true});
     }
 
     async componentDidMount() {
@@ -51,6 +54,7 @@ class TeamBuilderTable extends React.Component {
   }
 
     render() {
+      // let addModalClose = () => this.setState({addModalShow:false});
       console.log("Athletes",this.state.athletes);
         return(
 
@@ -114,7 +118,7 @@ class TeamBuilderTable extends React.Component {
                     </tbody>
                 </table>
 
-                
+                {/* <TransferMarketListModal message={this.state.message} show={this.state.addModalShow} onHide={addModalClose}/> */}
             </div>
         )
     } 
