@@ -81,7 +81,7 @@ class TeamBuilder extends React.Component {
             this.setState({thirdRowData:[...this.state.thirdRowData,dataToSplit[i]]});
         }
 
-        for(let i = 7; i < 9; i++) {
+        for(let i = 7; i < 10; i++) {
             this.setState({substituteRiders:[...this.state.substituteRiders,dataToSplit[i]]});
         }
     } 
@@ -113,54 +113,18 @@ class TeamBuilder extends React.Component {
                         
 
                         {this.state.firstRowData ? <RiderGrid 
-                        iconSize="4x" colSize="col-md-6" riders={this.state.firstRowData} styleToPass={{marginTop:'15px'}}
+                        iconSize="4x" colSize="col-md-6" riders={this.state.firstRowData} styleToPass={{marginTop:'0'}}
                         /> : <div>Brak zawodnikow</div>}
 
                       
 
                         {this.state.secondRowData ? <RiderGrid 
-                        iconSize="4x" colSize="col-md-6" riders={this.state.secondRowData} styleToPass={{marginTop:'15px'}}
+                        iconSize="4x" colSize="col-md-6" riders={this.state.secondRowData} styleToPass={{marginTop:'0'}}
                         /> : <div>Brak zawodnikow</div>}
 
                         {this.state.thirdRowData ? <RiderGrid 
-                        iconSize="4x" colSize="col-md-4" riders={this.state.thirdRowData} styleToPass={{marginTop:'15px'}}
+                        iconSize="4x" colSize="col-md-4" riders={this.state.thirdRowData} styleToPass={{marginTop:'0'}}
                         /> : <div>Brak zawodnikow</div>}
-
-                        {/* <div className="col-md-6">
-
-                                <FontAwesomeIcon size="4x" icon={faUser}/>
-                                <h5>Chris Holder</h5>
-                                </div>
-                                <div className="col-md-6">
-                                <FontAwesomeIcon size="4x" icon={faUser}/>
-                                <h5>Chris Holder</h5>
-                                </div>
-
-                                <div class="w-100" style={{margin:'20px'}}></div>
-
-                                <div className="col-md-6">
-                                <FontAwesomeIcon size="4x" icon={faUser}/>
-                                <h5>Chris Holder</h5>
-                                </div>
-                                <div className="col-md-6">
-                                <FontAwesomeIcon size="4x" icon={faUser}/>
-                                <h5>Chris Holder</h5>
-                                </div>
-                               
-                                <div class="w-100" style={{margin:'20px'}}></div>
-
-                                <div className="col-md-4">
-                                <FontAwesomeIcon size="4x" icon={faUser}/>
-                                <h5>Chris Holder</h5>
-                                </div>
-                                <div className="col-md-4">
-                                <FontAwesomeIcon size="4x" icon={faUser}/>
-                                <h5>Chris Holder</h5>
-                                </div>
-                                <div className="col-md-4">
-                                <FontAwesomeIcon size="4x" icon={faUser}/>
-                                <h5>Chris Holder</h5>
-                                </div> */}
 
 
                     
@@ -171,16 +135,9 @@ class TeamBuilder extends React.Component {
                             <h2>Rezerwowi</h2>
                             <hr className="my-4"/>
                             
-                            {this.state.substituteRiders ? <RiderGrid styleToPass={{margin:'15% 0'}} iconSize="6x" colSize="col-sm-12" riders={this.state.substituteRiders}/> : <div>Brak zawodnikow</div>}
-                                {/* <div className="col-sm-12" style={{margin:'15% 0'}}>
-                                <FontAwesomeIcon size="6x" icon={faUser}/>
-                                <h5>Chris Holder</h5>
-                                </div>
-                                <div className="col-sm-12" style={{margin:'15% 0'}}>
-                                <FontAwesomeIcon size="6x" icon={faUser}/>
-                                <h5>Chris Holder</h5>
-                                </div> */}
-                            
+                            {this.state.substituteRiders ? <RiderGrid styleToPass={{margin:'5% 0'}} iconSize="5x" colSize="col-sm-12" riders={this.state.substituteRiders}/> : <div>Brak zawodnikow</div>}
+                                
+                    
                         </header>
                 </div>
             </div>
