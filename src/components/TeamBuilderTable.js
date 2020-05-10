@@ -1,6 +1,7 @@
 import React from 'react';
 import authHeader from '../services/auth-header'
 import authService from '../services/auth-service'
+
 import TransferMarketListModal from './TransferMarketListModal';
 
 class TeamBuilderTable extends React.Component {
