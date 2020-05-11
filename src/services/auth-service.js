@@ -11,6 +11,7 @@ class AuthService {
             })
             .then(res =>{
                 if (res.data.token) {
+                    console.log("Wysyłam token !");
                     localStorage.setItem("player",JSON.stringify(res.data));
                 }
 
