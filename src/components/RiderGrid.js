@@ -8,7 +8,7 @@ const RiderGrid = (props) => {
     return(
         <div className="text-center row">
             {props.riders.map(rider => {
-                return <Rider styleToPass={props.styleToPass} iconSize={props.iconSize} colSize={props.colSize} name={rider.firstName + " " + rider.surname}/>
+                return <Rider link={rider.athleteId> 0 ? ("riderDetails/"+rider.athleteId) : ("transferMarket")} key={rider.athleteId} riderId={rider.athleteId} styleToPass={props.styleToPass} iconSize={props.iconSize} colSize={props.colSize} name={rider.firstName + " " + rider.surname}/>
             })}
         </div>
     )

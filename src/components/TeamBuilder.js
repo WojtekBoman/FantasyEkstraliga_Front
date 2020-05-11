@@ -8,6 +8,7 @@ import { faMoneyBillWave } from '@fortawesome/free-solid-svg-icons'
 import Rider from './Rider'
 import RiderGrid from './RiderGrid'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { Link } from "react-router-dom";
 
 class TeamBuilder extends React.Component {
 
@@ -20,7 +21,8 @@ class TeamBuilder extends React.Component {
             firstRowData:[],
             secondRowData:[],
             thirdRowData:[],
-            substituteRiders:[]
+            substituteRiders:[],
+            loading:true
         }
     }
 
@@ -43,9 +45,12 @@ class TeamBuilder extends React.Component {
     }
 
     renderGrid() {
+
+        let unknownId = -1;
         
-        const unknownRider = {
-            athleteId: -1,
+        const unknownRider = (id) => {
+            return ({
+            athleteId: id,
             category: "obcokrajowiec",
             club: -1,
             firstName: "Unknown",
@@ -55,18 +60,19 @@ class TeamBuilder extends React.Component {
             surname: "Rider",
             teamRole: null,
             teams: [],
-            value: 0,
+            value: 0
+            })
         }
 
         let dataToSplit = [];
 
         if(this.state.athletes != null) dataToSplit = [...this.state.athletes];
 
-        let len = 9;
-        if(typeof(this.state.athletes.length) != undefined) len = 9 - this.state.athletes.length
+        let len = 10;
+        if(typeof(this.state.athletes.length) != undefined) len = 10 - this.state.athletes.length
 
         for(let i = 0; i < len; i++) {
-            dataToSplit = [...dataToSplit,unknownRider]
+            dataToSplit = [...dataToSplit,unknownRider(unknownId--)]
         }
 
         for(let i = 0; i < 2; i++) {
@@ -84,6 +90,8 @@ class TeamBuilder extends React.Component {
         for(let i = 7; i < 10; i++) {
             this.setState({substituteRiders:[...this.state.substituteRiders,dataToSplit[i]]});
         }
+
+       this.setState({loading:false});
     } 
 
     
@@ -95,11 +103,11 @@ class TeamBuilder extends React.Component {
             <div className="row">
                 <div className="container bg-light border rounded border-dark col-xl-6" id="teamcreatorForm">
                         <header>
-                            <h2>Potężne byki</h2>
+                            <h2>Twoja drużyna</h2>
                             <hr className="my-4"/>
                            
                         </header>
-                        <button className="btn btn-primary btn-block">Kup zawodnika</button>
+                        <Link to="/transferMarket"><button className="btn btn-primary btn-block">Kup zawodnika</button></Link>
                         <br/>
                         <div className="row text-center">
                             <div class="alert alert-primary col-md-4">
@@ -110,24 +118,21 @@ class TeamBuilder extends React.Component {
                             </div>
                         </div>
                         <br/>
+
+                        {this.state.loading ? 
+                        (<div className="text-center container bg-light d-flex align-items-center justify-content-center flex-column">
+                        <span className="spinner-border spinner-border-lg"></span><h4>Wczytywanie... </h4>
+                      </div>) : 
+                        (
+                        <div>
+                        <RiderGrid iconSize="4x" colSize="col-md-6" riders={this.state.firstRowData} styleToPass={{marginTop:'0'}}/>
+
+                        <RiderGrid iconSize="4x" colSize="col-md-6" riders={this.state.secondRowData} styleToPass={{marginTop:'0'}}/>
+
+                        <RiderGrid iconSize="4x" colSize="col-md-4" riders={this.state.thirdRowData} styleToPass={{marginTop:'0'}}/>
                         
+                        </div>)}    
 
-                        {this.state.firstRowData ? <RiderGrid 
-                        iconSize="4x" colSize="col-md-6" riders={this.state.firstRowData} styleToPass={{marginTop:'0'}}
-                        /> : <div>Brak zawodnikow</div>}
-
-                      
-
-                        {this.state.secondRowData ? <RiderGrid 
-                        iconSize="4x" colSize="col-md-6" riders={this.state.secondRowData} styleToPass={{marginTop:'0'}}
-                        /> : <div>Brak zawodnikow</div>}
-
-                        {this.state.thirdRowData ? <RiderGrid 
-                        iconSize="4x" colSize="col-md-4" riders={this.state.thirdRowData} styleToPass={{marginTop:'0'}}
-                        /> : <div>Brak zawodnikow</div>}
-
-
-                    
                 </div>
 
                 <div className="container bg-light border rounded border-dark col-xl-3" id="teamcreatorForm">
@@ -135,7 +140,10 @@ class TeamBuilder extends React.Component {
                             <h2>Rezerwowi</h2>
                             <hr className="my-4"/>
                             
-                            {this.state.substituteRiders ? <RiderGrid styleToPass={{margin:'5% 0'}} iconSize="5x" colSize="col-sm-12" riders={this.state.substituteRiders}/> : <div>Brak zawodnikow</div>}
+                            {this.state.loading ? (<div className="text-center container bg-light d-flex align-items-center justify-content-center flex-column">
+                        <span className="spinner-border spinner-border-lg"></span><h4>Wczytywanie... </h4>
+                      </div>) : (<RiderGrid styleToPass={{margin:'5% 0'}} iconSize="5x" colSize="col-sm-12" riders={this.state.substituteRiders}/>)}
+                           
                                 
                     
                         </header>

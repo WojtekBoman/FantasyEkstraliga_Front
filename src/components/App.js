@@ -44,6 +44,7 @@ class App extends React.Component {
                 <Route path="/profile" component={ProfileBoard}/>
                 <Route path="/teamBuilder" component={TeamBuilder}/>
                 <Route path="/riderDetails/:id" component={RiderDetails}/>
+                <Route path="/riderDetails/-1" component={TransferMarket}/>
                 <Route path="/transferMarket" component={TransferMarket}/>
                 <Route path="/teamBuilderTable" component={TeamBuilderTable}/>
                 <Route path="/teamCreator" component={TeamCreator}/>
