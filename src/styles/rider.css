@@ -1,0 +1,12 @@
+.rider {
+    color: black;
+}
+
+.rider:hover {
+    color: gray;
+}
+
+.rider:active {
+    color: gray;
+    border: black;
+}
