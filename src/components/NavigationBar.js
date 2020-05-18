@@ -50,7 +50,9 @@ class NavigationBar extends React.Component {
                 <Navbar.Brand href="/">Fantasy ekstraliga</Navbar.Brand>
 
                 {currentUser ? (<Nav className="ml-auto">
-
+                <Link to="/mecze" className="nav-link" >
+                        <li className="nav-item">Mecze</li>
+                    </Link>
                 <li class="nav-item dropdown">
                   <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown">Skład</a>
                   <div class="dropdown-menu">

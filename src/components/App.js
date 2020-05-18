@@ -20,10 +20,12 @@ import RiderDetails from './RiderDetails'
 import Footer from './Footer'
 import TransferMarket from './TransferMarket';
 import TeamCreator from './TeamCreator'
+import MatchWindow from './MatchWindow'
 
 
 //IMPORT CSS
 import '../styles/app.css'
+import '../styles/match.css'
 
 
 
@@ -43,6 +45,7 @@ class App extends React.Component {
                 <Route path="/rejestracja" component={RegisterForm}/>
                 <Route path="/profile" component={ProfileBoard}/>
                 <Route path="/teamBuilder" component={TeamBuilder}/>
+                <Route path="/mecze" component={MatchWindow}/>
                 <Route path="/riderDetails/:id" component={RiderDetails}/>
                 <Route path="/riderDetails/-1" component={TransferMarket}/>
                 <Route path="/transferMarket" component={TransferMarket}/>

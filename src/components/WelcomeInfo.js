@@ -24,10 +24,13 @@ const WelcomeInfo = () => {
                         <li>Obserwować poczynania twoich zawodników na stadionach w całej Polsce</li>
                     </ul>
                 </p>
+ 
 
                 </Jumbotron>
         </Container>
     )
 }
+  
+
 
 export default WelcomeInfo;
