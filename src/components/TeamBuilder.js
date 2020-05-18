@@ -27,9 +27,9 @@ class TeamBuilder extends React.Component {
     }
 
     async componentDidMount() {
-        this.setState({team: authService.getCurrentUser().team})
+        // this.setState({team: authService.getCurrentUser().team})
   
-        console.log("Team",this.state.team);
+        // console.log("Team",this.state.team);
   
         let url = "http://localhost:8080/teamAthletes";
   
@@ -40,7 +40,8 @@ class TeamBuilder extends React.Component {
   
   
           fetch(url,options).then(res => res.json()).then((res) => this.setState({athletes: res.athletes,loading:false})).then(() => this.renderGrid());
-         
+
+    
          
     }
 
@@ -53,11 +54,11 @@ class TeamBuilder extends React.Component {
             athleteId: id,
             category: "obcokrajowiec",
             club: -1,
-            firstName: "Unknown",
+            firstName: "Brak",
             nationality: "",
             performances: [],
             points: 0,
-            surname: "Rider",
+            surname: "zawodnika",
             teamRole: null,
             teams: [],
             value: 0
