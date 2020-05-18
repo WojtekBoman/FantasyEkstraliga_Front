@@ -105,7 +105,6 @@ class LoginForm extends React.Component {
                     <label for="exampleInputHaslo">Hasło</label>
                     <Input type="password" value={password} onChange={this.onChangePassword} validations={[required]} className="form-control" id="exampleInputHaslo" placeholder="Podaj swoje hasło"/>
                 </div>
-                <div className="form-group ">
                 <button
                 className="btn btn-block btn-dark"
                 disabled={loading}
@@ -115,7 +114,6 @@ class LoginForm extends React.Component {
                 )}
                 <span>Login</span>
               </button>
-                </div>
 
                 {message && (
                   <div className="form-group">
