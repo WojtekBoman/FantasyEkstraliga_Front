@@ -12,6 +12,7 @@ class RiderDetails extends React.Component {
 
   constructor(props) {
     super(props);
+    this.getNextRival=this.getNextRival.bind(this);
 
     this.state = {
       isLoaded: false,
@@ -76,7 +77,12 @@ class RiderDetails extends React.Component {
    this.setState({ addModalShow: true });
   }
 
-
+  getNextRival(data){
+    if(data.nextMatch==null) return "Brak kolejnego meczu"
+    else if(data.clubName===data.nextMatch.clubs[0].name)
+    return data.nextMatch.clubs[1].name
+    else return data.nextMatch.clubs[0].name
+  }
 
 
   render() {
@@ -151,8 +157,8 @@ class RiderDetails extends React.Component {
                 <table class="table font-weight-bold text-center">
                   <thead class="thead-dark ">
                     <tr>
-                      <th class="">Punkty w kolejce</th>
-                      <td class="">0//</td>
+                      <th class="">Ostatni występ</th>
+              <td class="">{data.lastPerformance==null ? "Nie jechał":data.lastPerformance.points + data.lastPerformance.bonuses }</td>
                     </tr>
                     <tr>
                       <td></td>
@@ -168,7 +174,7 @@ class RiderDetails extends React.Component {
                     </tr>
                     <tr>
                       <th>Następny przeciwnik</th>
-                      <td>Sprta Wrocław//</td>
+                      <td>{this.getNextRival(data)}</td>
                     </tr>
                     <tr>
                       <td></td>

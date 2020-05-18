@@ -70,7 +70,6 @@ class TeamBuilderTable extends React.Component {
     return (
 
       <div className="container bg-light border rounded border-dark" id="tableWindow">
-        {this.state.team}
         <header>
           <h2>Twoja drużyna</h2>
           {/* {this.state.loading && (<div className="d-inline">
