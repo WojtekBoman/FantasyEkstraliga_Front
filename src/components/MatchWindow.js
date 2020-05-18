@@ -37,7 +37,7 @@ class MatchWindow extends React.Component {
     } 
 
     componentDidMount() {
-        this.getResults(2);
+        this.getResults(this.state.actualMatchWeek);
     }
 
     onChangeMatchWeek(e) {
