@@ -39,13 +39,13 @@ class DeleteAccountForm extends React.Component {
         e.preventDefault();
 
         this.setState({
-            loading:false,
+            loading:true,
             message:""
         })
 
         this.form.validateAll();
 
-        if (this.checkBtn.context._errors.length === 0) {
+        if (this.checkBtn.context._errors.length === 0 && window.confirm("Jesteś pewny ?")) {
 
             const {password} = this.state;
            
@@ -55,9 +55,24 @@ class DeleteAccountForm extends React.Component {
             headers: authHeader()
           };
 
+          
           fetch(url,options)
           .then(
-            (res) => res.json()).then((res) => console.log(res));
+            response => {
+              if(response.status === 400) {
+                this.setState({
+                  loading:false,
+                  message:"Podałeś nieprawidłowe hasło"
+                })
+                console.log(response);
+              }else {
+                this.props.history.push('/')
+                window.location.reload();
+                AuthService.logout();
+                alert("Twoje konto zostało usunięte");
+              }
+            }
+            )
         }else{
           this.setState({
             loading: false

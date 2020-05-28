@@ -40,7 +40,8 @@ class ChangePasswordForm extends React.Component {
             message:'',
             oldPassword:'',
             repeatedNewPassword:'',
-            newPassword:''
+            newPassword:'',
+            alertStyle: "alert alert-danger"
         }
     }
 
@@ -59,10 +60,9 @@ class ChangePasswordForm extends React.Component {
     handleChangePassword(e) {
         e.preventDefault();
 
-        // this.setState({
-        //     loading:true,
-        //     message:""
-        // })
+        this.setState({
+            loading:true,
+        })
 
         this.form.validateAll();
 
@@ -87,7 +87,19 @@ class ChangePasswordForm extends React.Component {
 
           fetch(url,options)
           .then(
-            (res) => res.json()).then((res) => console.log(res));
+            response => {
+              if(response.status === 400) {
+                this.setState({
+                  alertStyle:"alert alert-danger"
+                })
+              }else{
+                this.setState({
+                  alertStyle:"alert alert-success"
+                })
+              }
+              return response.json()
+            }
+        ).then(response => this.setState({message:response.message,loading:false}))
         }else{
           this.setState({
             loading: false
@@ -134,7 +146,7 @@ class ChangePasswordForm extends React.Component {
 
                 {message && (
                   <div className="form-group">
-                    <div className="alert alert-danger" role="alert">
+                    <div className={this.state.alertStyle} role="alert">
                         {message}
                     </div>
                   </div>
