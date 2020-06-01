@@ -1,5 +1,6 @@
 import React from 'react';
 import athleteService from '../services/athlete-service';
+import authHeader from '../services/auth-header';
 import { Link } from "react-router-dom";
 import TransferMarketList from './TransferMarketList';
 
@@ -14,6 +15,7 @@ class TransferMarket extends React.Component {
       searchValue: '3',
       searchClub: '',
       clubs: [],
+      budget:-1,
             
     }
  
@@ -23,10 +25,25 @@ class TransferMarket extends React.Component {
   async componentDidMount() {
     const riders = await athleteService.getAllAthletes();
     const clubs = await athleteService.getAllClubs();
-    this.setState({ isLoaded: true, items: riders.data, clubs:clubs.data})
+    this.setState({items: riders.data, clubs:clubs.data})
+    this.getTeam();
     console.log(riders)
     console.log(this.state.items)
 
+  }
+
+  async getTeam(){
+    this.setState({ isLoaded: false})
+    let url = "http://localhost:8080/teamAthletes";
+
+    let options = {
+      method: 'GET',
+      headers: authHeader()
+    };
+
+    fetch(url, options).then(res => res.json())
+      .then((res) => this.setState({
+       budget: res.team.budget, isLoaded:true}));
   }
 
   updateSearchCategory(event) { this.setState({ searchCategory: event.target.value.substr(0, 20) }); }
@@ -46,7 +63,7 @@ class TransferMarket extends React.Component {
 
 
     if (!isLoaded) {
-      return (<div className="text-center container bg-light border rounded border-dark d-flex align-items-center justify-content-center flex-column" style={{ height: 480 + 'px' }}>
+      return (<div className="text-center container bg-light border rounded border-dark d-flex align-items-center justify-content-center flex-column" style={{ height: 480 + 'px',margin:"150px auto" }}>
         <span className="spinner-border spinner-border-lg"></span><h4>Wczytywanie... </h4>
       </div>)
     } else
@@ -106,7 +123,7 @@ class TransferMarket extends React.Component {
               </div>
               <div class="col-sm-3 d-flex align-items-center justify-content-center flex-column">
                 <h4>Budżet:</h4>
-                <h3>15,00 mln//</h3>
+                <h3>{parseFloat(this.state.budget).toFixed(3)} mln</h3>
               </div>
             </div>
 
