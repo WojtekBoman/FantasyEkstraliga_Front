@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGlobeEurope } from '@fortawesome/free-solid-svg-icons'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { faMoneyBillWave } from '@fortawesome/free-solid-svg-icons'
+import { faMotorcycle } from '@fortawesome/free-solid-svg-icons'
 import Rider from './Rider'
 import RiderGrid from './RiderGrid'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
@@ -14,6 +15,7 @@ class TeamBuilder extends React.Component {
 
     constructor(props) {
         super(props);
+        this.renderLoadingDiv = this.renderLoadingDiv.bind(this);
 
         this.state = {
             team:null,
@@ -21,9 +23,16 @@ class TeamBuilder extends React.Component {
             firstRowData:[],
             secondRowData:[],
             thirdRowData:[],
-            substituteRiders:[],
-            loading:true
+            substituteRidersData:[],
+            loading:true,
+            teamData:null
         }
+    }
+
+    renderLoadingDiv() {
+        return (<div className="text-center container bg-light d-flex align-items-center justify-content-center flex-column">
+        <span className="spinner-border spinner-border-lg"></span><h4>Wczytywanie... </h4>
+      </div>);
     }
 
     async componentDidMount() {
@@ -39,9 +48,11 @@ class TeamBuilder extends React.Component {
           };
   
   
-          fetch(url,options).then(res => res.json()).then((res) => this.setState({athletes: res.athletes,loading:false})).then(() => this.renderGrid());
+          fetch(url,options).then(res => res.json())
+          .then(res => {this.setState({teamData:res}); this.renderGrid() })
+        //   .then((res) => this.setState({athletes: res.athletes,loading:false})).then(() => this.renderGrid());
 
-    
+        
          
     }
 
@@ -65,32 +76,59 @@ class TeamBuilder extends React.Component {
             })
         }
 
+        
+
+        console.log(this.state.teamData.team.athletes)
+
+        let substituteRiders = this.state.teamData.team.athletes.filter(rider => rider.teamRole.slice(0,3) == "SUB");
+        let regularRiders = this.state.teamData.team.athletes.filter(rider => rider.teamRole.slice(0,3) != "SUB")
+        let firstRowData = [];
+        let secondRowData = [];
+        let thirdRowData = [];
+        let substituteRidersData = []
         let dataToSplit = [];
+        let substituteToSplit = []
+        
 
-        if(this.state.athletes != null) dataToSplit = [...this.state.athletes];
+        if(regularRiders != null) dataToSplit = [...regularRiders];
+        if(substituteRiders != null) substituteToSplit = [...substituteRiders]
 
-        let len = 10;
-        if(typeof(this.state.athletes.length) != undefined) len = 10 - this.state.athletes.length
+
+
+        let len = 7;
+        if(typeof(regularRiders.length) != undefined) len = 7 - regularRiders.length
 
         for(let i = 0; i < len; i++) {
             dataToSplit = [...dataToSplit,unknownRider(unknownId--)]
         }
 
+        let subLen = 3;
+        if(typeof(substituteRiders.length) != undefined) subLen = 3 - substituteRiders.length
+
+        for(let i = 0; i < subLen; i++) {
+            substituteToSplit = [...substituteToSplit,unknownRider(unknownId--)]
+        }
+
+
         for(let i = 0; i < 2; i++) {
-            this.setState({firstRowData:[...this.state.firstRowData,dataToSplit[i]]});
+      
+            firstRowData = [...firstRowData,dataToSplit[i]]
         }
 
         for(let i = 2; i < 4; i++) {
-            this.setState({secondRowData:[...this.state.secondRowData,dataToSplit[i]]});
+            secondRowData = [...secondRowData,dataToSplit[i]]
         }
 
         for(let i = 4; i < 7; i++) {
-            this.setState({thirdRowData:[...this.state.thirdRowData,dataToSplit[i]]});
+            thirdRowData = [...thirdRowData,dataToSplit[i]]
         }
 
-        for(let i = 7; i < 10; i++) {
-            this.setState({substituteRiders:[...this.state.substituteRiders,dataToSplit[i]]});
+        for(let i = 0; i < 3; i++) {
+            substituteRidersData = [...substituteRidersData,substituteToSplit[i]]
         }
+
+        console.log("SUBS_DATA",substituteRidersData)
+        this.setState({substituteRidersData,thirdRowData,secondRowData,firstRowData})
 
        this.setState({loading:false});
     } 
@@ -99,78 +137,109 @@ class TeamBuilder extends React.Component {
 
     render() {
 
+        console.log("teamData",this.state.teamData)
+
         return(
         <div>
+             
+
             <div className="row">
+
+               
+
                 <div className="container bg-light border rounded border-dark col-xl-6" id="teamcreatorForm">
+
+                {this.state.teamData ? (<div>
                         <header>
-                            <h2>Twoja drużyna</h2>
+                            <h2>{this.state.teamData.team.name}</h2>
                             <hr className="my-4"/>
                            
                         </header>
                         <Link to="/transferMarket"><button className="btn btn-primary btn-block">Kup zawodnika</button></Link>
-                        <br/>
-                        <div className="row text-center">
-                            <div class="alert alert-primary col-md-4">
-                                <h4>Punkty : <span>30</span></h4>
-                            </div>
-                            <div class="alert alert-primary col-md-4 offset-md-4">
+                        {/* <br/>
+                        <div className="text-center">
+                            <div class="alert alert-primary">
                             <h4>Kolejka : <span>2</span></h4>
                             </div>
                         </div>
-                        <br/>
+                        <br/> */}
 
+                        <br></br>
                         {this.state.loading ? 
                         (<div className="text-center container bg-light d-flex align-items-center justify-content-center flex-column">
                         <span className="spinner-border spinner-border-lg"></span><h4>Wczytywanie... </h4>
                       </div>) : 
                         (
                         <div>
-                        <RiderGrid iconSize="4x" colSize="col-md-6" riders={this.state.firstRowData} styleToPass={{marginTop:'0'}}/>
+                        <RiderGrid iconSize="6x" colSize="col-md-6" riders={this.state.firstRowData} styleToPass={{margin:"5px auto"}}/>
 
-                        <RiderGrid iconSize="4x" colSize="col-md-6" riders={this.state.secondRowData} styleToPass={{marginTop:'0'}}/>
+                        <RiderGrid iconSize="6x" colSize="col-md-6" riders={this.state.secondRowData} styleToPass={{margin:"5px auto"}}/>
+                        
+                        <RiderGrid iconSize="6x" colSize="col-md-4" riders={this.state.thirdRowData} styleToPass={{margin:"10px auto"}}/>
 
-                        <RiderGrid iconSize="4x" colSize="col-md-4" riders={this.state.thirdRowData} styleToPass={{marginTop:'0'}}/>
+                        <header>
+                            <h3>Rezerwowi</h3>
+                            <hr className="my-4"></hr>
+                        </header>
+                        <RiderGrid styleToPass={{margin:'10px auto'}} iconSize="6x" colSize="col-md-4" riders={this.state.substituteRidersData}/>
                         
                         </div>)}    
+                        </div>) 
+                    :
+                    (<div className="text-center container bg-light d-flex align-items-center justify-content-center flex-column">
+                    <span className="spinner-border spinner-border-lg"></span><h4>Wczytywanie... </h4>
+                  </div>)    
+                    }
+
 
                 </div>
 
-                <div className="container bg-light border rounded border-dark col-xl-3" id="teamcreatorForm">
+                {/* <div className="container bg-light border rounded border-dark col-xl-2" id="teamcreatorForm">
                         <header>
                             <h2>Rezerwowi</h2>
                             <hr className="my-4"/>
                             
                             {this.state.loading ? (<div className="text-center container bg-light d-flex align-items-center justify-content-center flex-column">
                         <span className="spinner-border spinner-border-lg"></span><h4>Wczytywanie... </h4>
-                      </div>) : (<RiderGrid styleToPass={{margin:'5% 0'}} iconSize="5x" colSize="col-sm-12" riders={this.state.substituteRiders}/>)}
+                      </div>) : (<RiderGrid styleToPass={{margin:'10% 0'}} iconSize="5x" colSize="col-sm-12" riders={this.state.substituteRidersData}/>)}
                            
                                 
                     
                         </header>
-                </div>
-            </div>
-            <div className="container bg-light border rounded border-dark" id="teamcreatorForm">
-            <header>
+                </div> */}
+
+                <div className="container bg-light border rounded border-dark col-xl-3" id="teamcreatorForm">
+                <header>
                     <h2>Statystki</h2>
                             <hr className="my-4"/>
                     </header>
+                {this.state.teamData ? (<div>
                     <div className="row text-center">
-                        <div className="col-md-4">
+                        <div className="col-sm-12" style={{margin:"7% 0"}}>
                             <FontAwesomeIcon size="6x" icon={faGlobeEurope}/>
-                            <h3>Ranking : <span>1</span></h3>
+                            <h3>Ranking : <span>{this.state.teamData.ranking}</span></h3>
                             </div>
-                        <div className="col-md-4">
+                        <div className="col-sm-12" style={{margin:"7% 0"}}>
                             <FontAwesomeIcon size="6x" icon={faStar}/>
-                            <h3>Punkty : <span>10000</span></h3>
+                            <h3>Punkty : <span>{this.state.teamData.team.points}</span></h3>
                             </div>
-                        <div className="col-md-4">
+                        <div className="col-sm-12" style={{margin:"7% 0"}}>  
                             <FontAwesomeIcon size="6x" icon={faMoneyBillWave}/>
-                            <h3>Budżet : <span>10000</span></h3>
+                            <h3>Budżet : <span>{this.state.teamData.team.budget} mln</span></h3>
+                            </div>
+                            <div className="col-sm-12" style={{margin:"7% 0"}}>  
+                            <FontAwesomeIcon size="6x" icon={faMotorcycle}/>
+                            <h3>Kolejka: <span>2</span></h3>
                             </div>
                     </div>
                 
+            </div>) : (<div className="text-center container bg-light d-flex align-items-center justify-content-center flex-column">
+                    <span className="spinner-border spinner-border-lg"></span><h4>Wczytywanie... </h4>
+                  </div>)}
+                
             </div>
+            </div>
+           
         </div>
         )
     }

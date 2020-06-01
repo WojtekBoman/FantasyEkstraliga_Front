@@ -52,10 +52,10 @@ const Footer = () => {
             <a href="https://github.com/m1kha3l">Michał Dąbrowski</a>
           </li>
           <li>
-            <a href="https://github.com/TheKuba98">Tomasz Przybylski</a>
+            <a href="https://github.com/tomaxo14">Tomasz Przybylski</a>
           </li>
           <li>
-            <a href="https://github.com/tomaxo14">Jakub Szańca</a>
+            <a href="https://github.com/TheKuba98">Jakub Szańca</a>
           </li>
         </ul>
 
