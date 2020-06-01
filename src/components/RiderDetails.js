@@ -42,7 +42,7 @@ class RiderDetails extends React.Component {
       method: 'GET',
       headers: authHeader()
     };
-    fetch(url, options).then(res => res.json()).then((res) => this.setState({ teamAthletes: res.athletes, isLoaded: true, isTransfered: true }));
+    fetch(url, options).then(res => res.json()).then((res) => this.setState({ teamAthletes: res.team.athletes, isLoaded: true, isTransfered: true }));
   }
 
   sellAthlete(athleteId) {

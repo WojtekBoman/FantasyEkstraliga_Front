@@ -1,0 +1,33 @@
+ td.squad{
+    
+    vertical-align: middle;
+  
+}
+#infoIcon:hover{
+  color:#292b2c;
+}
+#infoIcon{
+    color:#343a40;
+}
+#names {
+    /* display: block;
+    font-size: .67em;
+    /* margin-top: 2.33em;
+    margin-bottom: 2.33em;
+    margin-left: 0;
+    margin-right: 0; */
+    font-weight: 500; 
+    /* font-size:16px */
+  }
+
+  #flag{
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    object-fit: cover;
+    
+  }
+
+  .teamStats{
+    background-color:#292b2c;
+  }
+  
