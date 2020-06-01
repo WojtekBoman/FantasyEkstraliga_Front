@@ -19,3 +19,15 @@
     margin: 100px auto;
     padding: 50px;
 }
+
+#delAccForm {
+    margin: 200px auto;
+    padding: 50px;
+    width: 30%;
+}
+
+#changePasswordForm {
+    margin: 200px auto;
+    padding: 50px;
+    width: 40%;
+}

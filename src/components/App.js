@@ -21,11 +21,15 @@ import Footer from './Footer'
 import TransferMarket from './TransferMarket';
 import TeamCreator from './TeamCreator'
 import MatchWindow from './MatchWindow'
+import Settings from './Settings'
+import DeleteAccountForm from './DeleteAccountForm'
+import ChangePasswordForm from './ChangePasswordForm'
 
 
 //IMPORT CSS
 import '../styles/app.css'
 import '../styles/match.css'
+import '../styles/menu.css'
 
 
 
@@ -51,6 +55,9 @@ class App extends React.Component {
                 <Route path="/transferMarket" component={TransferMarket}/>
                 <Route path="/teamBuilderTable" component={TeamBuilderTable}/>
                 <Route path="/teamCreator" component={TeamCreator}/>
+                <Route path="/settings" component={Settings} />
+                <Route path="/deleteAccount" component={DeleteAccountForm} />
+                <Route path="/changePassword" component={ChangePasswordForm}/>
                 </Switch>
                 <Footer/>
             </div>

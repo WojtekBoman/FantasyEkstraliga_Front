@@ -53,11 +53,11 @@ class TeamBuilder extends React.Component {
             athleteId: id,
             category: "obcokrajowiec",
             club: -1,
-            firstName: "Unknown",
+            firstName: "Brak",
             nationality: "",
             performances: [],
             points: 0,
-            surname: "Rider",
+            surname: "zawodnika",
             teamRole: null,
             teams: [],
             value: 0
