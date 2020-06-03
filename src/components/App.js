@@ -24,6 +24,7 @@ import MatchWindow from './MatchWindow'
 import Settings from './Settings'
 import DeleteAccountForm from './DeleteAccountForm'
 import ChangePasswordForm from './ChangePasswordForm'
+import Ranking from './Ranking'
 
 
 //IMPORT CSS
@@ -57,6 +58,7 @@ class App extends React.Component {
                 <Route path="/teamCreator" component={TeamCreator}/>
                 <Route path="/settings" component={Settings} />
                 <Route path="/deleteAccount" component={DeleteAccountForm} />
+                <Route path="/ranking" component={Ranking} />
                 <Route path="/changePassword" component={ChangePasswordForm}/>
                 </Switch>
                 <Footer/>

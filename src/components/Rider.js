@@ -48,7 +48,7 @@ const Rider = (props) => {
     {props.riderId > 0 && (<ReactCountryFlag id="flag" countryCode={getCountryCode(props.nationality)} svg style={{ width: '2.5em', height: '2.5em', }} title="US" />)}
     <br></br>
     <div style={{display:"inline-flex"}} >
-    <h5>{props.name}</h5>{props.role != "REGULAR" && props.riderId > 0 && (<LetterAvatar letter={props.role[0]}></LetterAvatar>)}
+    <h5>{props.name}</h5>{(props.role === "VICE" || props.role === "CAPTAIN") && (<LetterAvatar letter={props.role[0]}></LetterAvatar>)}
     </div>
     </div>
     )

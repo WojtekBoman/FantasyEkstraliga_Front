@@ -53,18 +53,24 @@ class NavigationBar extends React.Component {
                 <Link to="/mecze" className="nav-link" >
                         <li className="nav-item">Mecze</li>
                     </Link>
-                <li class="nav-item dropdown">
-                  <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown">Skład</a>
-                  <div class="dropdown-menu">
-                        <Link to={"/teamBuilderTable"} className="dropdown-item">Tabela</Link>
-                        <Link to={"/teamBuilder"} className="dropdown-item">Widok podstawowy</Link>
-                        <Link to={"/teamCreator"} className="dropdown-item">Stwórz drużynę</Link>
-                    </div>
-                  </li>
-                  <Link to="/transferMarket" className="nav-link" >
+                    {this.state.currentUser.team && (
+                        <li class="nav-item dropdown">
+                        <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown">Skład</a>
+                        <div class="dropdown-menu">
+                              <Link to={"/teamBuilderTable"} className="dropdown-item">Tabela</Link>
+                              <Link to={"/teamBuilder"} className="dropdown-item">Widok podstawowy</Link>
+                              <Link to={"/teamCreator"} className="dropdown-item">Stwórz drużynę</Link>
+                          </div>
+                        </li>
+                    )}
+                {this.state.currentUser.team && (
+                    <Link to="/transferMarket" className="nav-link" >
                         <li className="nav-item">Transfery</li>
                     </Link>
-                
+                )}
+                <Link to="/ranking" className="nav-link" >
+                        <li className="nav-item">Ranking</li>
+                    </Link>
                     <li class="nav-item dropdown">
                   <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown">{currentUser.login}</a>
                   <div class="dropdown-menu">

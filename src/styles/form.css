@@ -11,8 +11,13 @@
 }
 
 #teamcreatorForm {
-    margin: 100px auto;
+    margin: 200px auto;
     padding: 20px;
+}
+
+#teamBuilderForm{
+    margin:100px auto;
+    padding:20px;
 }
 
 #tableWindow {
@@ -30,4 +35,13 @@
     margin: 200px auto;
     padding: 50px;
     width: 40%;
+}
+
+.loading {
+    margin:150px auto
+}
+
+#ranking {
+    margin: 150px auto;
+    padding: 50px;
 }

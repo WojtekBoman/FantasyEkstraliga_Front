@@ -42,6 +42,9 @@ class TeamCreator extends React.Component {
         e.preventDefault();
 
         this.form.validateAll();
+        this.setState({
+          loading:true
+        })
 
         let url = `http://localhost:8080/createTeam?teamName=${this.state.teamName}`;
 
@@ -49,12 +52,13 @@ class TeamCreator extends React.Component {
           method: 'POST',
           headers : authHeader()
           };
-
-
-         
-
         if (this.checkBtn.context._errors.length === 0){
-          fetch(url,options).then(res => res.text()).then(res => this.setState({message:res}))
+          fetch(url,options).then(res => res.text()).then(res => 
+            {
+              this.setState({message:res})
+              window.location.reload();
+            }
+            )
           .catch(error => {
             const resMessage =
               (error.response &&

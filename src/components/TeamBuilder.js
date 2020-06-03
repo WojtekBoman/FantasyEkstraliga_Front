@@ -127,27 +127,21 @@ class TeamBuilder extends React.Component {
             substituteRidersData = [...substituteRidersData,substituteToSplit[i]]
         }
 
-        console.log("SUBS_DATA",substituteRidersData)
-        this.setState({substituteRidersData,thirdRowData,secondRowData,firstRowData})
+        this.setState({substituteRidersData,thirdRowData,secondRowData,firstRowData,loading:false})
 
-       this.setState({loading:false});
+
     } 
 
     
 
     render() {
 
-        console.log("teamData",this.state.teamData)
-
         return(
         <div>
              
 
             <div className="row">
-
-               
-
-                <div className="container bg-light border rounded border-dark col-xl-6" id="teamcreatorForm">
+                <div className={"container bg-light border rounded border-dark col-md-6"} id="teamBuilderForm">
 
                 {this.state.teamData ? (<div>
                         <header>
@@ -156,14 +150,7 @@ class TeamBuilder extends React.Component {
                            
                         </header>
                         <Link to="/transferMarket"><button className="btn btn-primary btn-block">Kup zawodnika</button></Link>
-                        {/* <br/>
-                        <div className="text-center">
-                            <div class="alert alert-primary">
-                            <h4>Kolejka : <span>2</span></h4>
-                            </div>
-                        </div>
-                        <br/> */}
-
+                   
                         <br></br>
                         {this.state.loading ? 
                         (<div className="text-center container bg-light d-flex align-items-center justify-content-center flex-column">
@@ -208,32 +195,32 @@ class TeamBuilder extends React.Component {
                         </header>
                 </div> */}
 
-                <div className="container bg-light border rounded border-dark col-xl-3" id="teamcreatorForm">
+                <div className="container bg-light border rounded border-dark col-md-3" id="teamBuilderForm">
                 <header>
-                    <h2>Statystki</h2>
+                    <h2>Statystyki</h2>
                             <hr className="my-4"/>
                     </header>
                 {this.state.teamData ? (<div>
                     <div className="row text-center">
-                        <div className="col-sm-12" style={{margin:"7% 0"}}>
+                        <div className="col-sm-12" style={{margin:"7% auto"}}>
                             <FontAwesomeIcon size="6x" icon={faGlobeEurope}/>
                             <h3>Ranking : <span>{this.state.teamData.ranking}</span></h3>
                             </div>
-                        <div className="col-sm-12" style={{margin:"7% 0"}}>
+                        <div className="col-sm-12" style={{margin:"7% auto"}}>
                             <FontAwesomeIcon size="6x" icon={faStar}/>
                             <h3>Punkty : <span>{this.state.teamData.team.points}</span></h3>
                             </div>
-                        <div className="col-sm-12" style={{margin:"7% 0"}}>  
+                        <div className="col-sm-12" style={{margin:"7% auto"}}>  
                             <FontAwesomeIcon size="6x" icon={faMoneyBillWave}/>
                             <h3>Budżet : <span>{this.state.teamData.team.budget} mln</span></h3>
                             </div>
-                            <div className="col-sm-12" style={{margin:"7% 0"}}>  
+                            <div className="col-sm-12" style={{margin:"7% auto"}}>  
                             <FontAwesomeIcon size="6x" icon={faMotorcycle}/>
                             <h3>Kolejka: <span>2</span></h3>
                             </div>
                     </div>
                 
-            </div>) : (<div className="text-center container bg-light d-flex align-items-center justify-content-center flex-column">
+            </div>) : (<div className="text-center container bg-light d-flex align-items-center justify-content-center flex-column loading" >
                     <span className="spinner-border spinner-border-lg"></span><h4>Wczytywanie... </h4>
                   </div>)}
                 

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import AuthService from "../services/auth-service"
+import TeamCreator from "./TeamCreator"
 
 class ProfileBoard extends React.Component {
 
@@ -16,9 +17,12 @@ class ProfileBoard extends React.Component {
     render() {
 
         const {currentUser} = this.state;
+        console.log(AuthService.getCurrentUser());
 
         return(
-            <div id="info" className="container">
+            
+            <div>
+            {currentUser.team ? (<div id="info" className="container">
                 <div className="jumbotron">
                     <h3>
                         <strong>{currentUser.login}</strong> Profile
@@ -39,6 +43,7 @@ class ProfileBoard extends React.Component {
                         currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
                     </ul>
                 </div>
+      </div>) : (<TeamCreator />) }
       </div>
         )
     }
