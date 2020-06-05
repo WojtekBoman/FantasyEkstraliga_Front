@@ -2,7 +2,9 @@ import React from 'react';
 import athleteService from '../services/athlete-service';
 import authHeader from '../services/auth-header';
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TransferMarketListClick from './TransferMarketListClick';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 const useSortableData = (items, config = null) => {
   const [sortConfig, setSortConfig] = React.useState(config);
@@ -73,7 +75,7 @@ const TransferMarketList = (props) => {
     return sortConfig.key === name ? sortConfig.direction : undefined;
   };
   return (
-    <table class="table table-striped table-sortable">
+    <table class="table table-sortable">
       <thead class="thead-dark">
 
 
@@ -81,26 +83,28 @@ const TransferMarketList = (props) => {
           <th scope='col'>L.p</th>
           <th scope="col" onClick={() => requestSort('nationality')} ClassName={getClassNamesFor('nationality')}>Kraj</th>
           <th scope="col" onClick={() => requestSort('surname')} ClassName={getClassNamesFor('surname')}>Zawodnik</th>
-          <th scope="col" onClick={() => requestSort('value')} ClassName={getClassNamesFor('value')}>Wartość</th>
           <th scope="col" onClick={() => requestSort('club')} ClassName={getClassNamesFor('club')}>Klub</th>
           <th scope="col" onClick={() => requestSort('category')} ClassName={getClassNamesFor('category')}>Kategoria</th>
+          <th scope="col" onClick={() => requestSort('value')} ClassName={getClassNamesFor('value')}>Wartość</th>
           <th scope="col" onClick={() => requestSort('points')} ClassName={getClassNamesFor('points')}>Punkty</th>
-          <th scope="col">Akcje</th>
+          <th scope="col">Kup</th>
           <th scope="col">Info</th>
         </tr>
       </thead>
       <tbody>
         {
           items.map(item => (<tr key={item.athleteId}>
-            <td>{i = i + 1}</td>
-            <td>{item.nationality}</td>
-            <td>{item.firstName} {item.surname}</td>
-            <td>{item.value} mln</td>
-            <td>{getClub(item.club, clubs)}</td>
-            <td>{item.category}</td>
-            <td>{item.points}</td>
-            <td className="d-flex align-items-center row justify-content  "><TransferMarketListClick rider_id={item.athleteId}/></td>
-            <td><Link to={"riderDetails/" + item.athleteId}><button className="btn btn-primary">Więcej</button></Link></td>
+            <td className="align-middle text-center">{i = i + 1}</td>
+            <td className="align-middle">{item.nationality}</td>
+            <td className="align-middle"><span id="names">{item.firstName} {item.surname}</span></td>
+            <td className="align-middle font-weight-light">{getClub(item.club, clubs)}</td>
+            <td className="align-middle">{item.category}</td>
+            <td className="align-middle">{item.value} mln</td>
+            <td className="align-middle text-center">{item.points}</td>
+            <td className=" d-flex align-items-center justify-content-center"><TransferMarketListClick rider_id={item.athleteId}/></td>
+            <td className="align-middle"><Link to={"riderDetails/" + item.athleteId} >
+                          <FontAwesomeIcon id="infoIcon" color="black" size="2x" icon={faInfoCircle} /></Link>
+                        </td>
 
           </tr>
 

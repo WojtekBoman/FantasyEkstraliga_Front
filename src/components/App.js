@@ -25,6 +25,7 @@ import Settings from './Settings'
 import DeleteAccountForm from './DeleteAccountForm'
 import ChangePasswordForm from './ChangePasswordForm'
 import Ranking from './Ranking'
+import Stats from './Stats'
 
 
 //IMPORT CSS
@@ -60,6 +61,7 @@ class App extends React.Component {
                 <Route path="/deleteAccount" component={DeleteAccountForm} />
                 <Route path="/ranking" component={Ranking} />
                 <Route path="/changePassword" component={ChangePasswordForm}/>
+                <Route path="/stats" component={Stats}/>
                 </Switch>
                 <Footer/>
             </div>

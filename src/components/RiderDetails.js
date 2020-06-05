@@ -5,6 +5,7 @@ import TeamBuilderTable from './TeamBuilderTable';
 import TransferMarketListModal from './TransferMarketListModal';
 import TransferMarketListClick from './TransferMarketListClick';
 import { faUser } from '@fortawesome/free-solid-svg-icons'
+import ReactCountryFlag from "react-country-flag"
 
 import athleteService from '../services/athlete-service';
 
@@ -12,7 +13,7 @@ class RiderDetails extends React.Component {
 
   constructor(props) {
     super(props);
-    this.getNextRival=this.getNextRival.bind(this);
+    this.getNextRival = this.getNextRival.bind(this);
 
     this.state = {
       isLoaded: false,
@@ -32,6 +33,32 @@ class RiderDetails extends React.Component {
     console.log(data);
     this.getTeam();
 
+  }
+  getCountryCode(country) {
+    switch (country) {
+      case "Polska":
+        return "PL"
+      case "Dania":
+        return "DK"
+      case "Australia":
+        return "AU"
+      case "W.Brytania":
+        return "GB"
+      case "Szwecja":
+        return "SE"
+      case "Czechy":
+        return "CZ"
+      case "Rosja":
+        return "RU"
+      case "Słowacja":
+        return "SK"
+      case "Słowenia":
+        return "SI"
+      case "Niemcy":
+        return "DE"
+      default:
+        return 'NP';
+    }
   }
 
   getTeam() {
@@ -57,9 +84,9 @@ class RiderDetails extends React.Component {
       headers: authHeader()
     };
 
-    fetch(url, options).then(res => res.text()).then(res => this.setState({ message: res})).then(() => this.getTeam());
-    
-   this.setState({ addModalShow: true });
+    fetch(url, options).then(res => res.text()).then(res => this.setState({ message: res })).then(() => this.getTeam());
+
+    this.setState({ addModalShow: true });
   }
 
   buyAthlete(athleteId) {
@@ -73,14 +100,14 @@ class RiderDetails extends React.Component {
     };
 
 
-    fetch(url, options).then(res => res.text()).then(res => this.setState({ message: res})).then(() => this.getTeam());
-   this.setState({ addModalShow: true });
+    fetch(url, options).then(res => res.text()).then(res => this.setState({ message: res })).then(() => this.getTeam());
+    this.setState({ addModalShow: true });
   }
 
-  getNextRival(data){
-    if(data.nextMatch==null) return "Brak kolejnego meczu"
-    else if(data.clubName===data.nextMatch.clubs[0].name)
-    return data.nextMatch.clubs[1].name
+  getNextRival(data) {
+    if (data.nextMatch == null) return "Brak kolejnego meczu"
+    else if (data.clubName === data.nextMatch.clubs[0].name)
+      return data.nextMatch.clubs[1].name
     else return data.nextMatch.clubs[0].name
   }
 
@@ -102,7 +129,7 @@ class RiderDetails extends React.Component {
 
 
     if (!isLoaded) {
-      return (<div className="text-center container bg-light border rounded border-dark d-flex align-items-center justify-content-center flex-column" style={{ height: 480 + 'px',margin:"150px auto" }}>
+      return (<div className="text-center container bg-light border rounded border-dark d-flex align-items-center justify-content-center flex-column" style={{ height: 480 + 'px', margin: "150px auto" }}>
         <span className="spinner-border spinner-border-lg"></span><h4>Wczytywanie... </h4>
       </div>)
     } else
@@ -116,15 +143,15 @@ class RiderDetails extends React.Component {
             <div class="col-sm-4 d-flex align-items-center flex-column justify-content-center" id="leftSide">
               <FontAwesomeIcon size="10x" icon={faUser} />
               <div class="w-100" style={{ margin: '25px' }}></div>
-              
-              {this.state.isTransfered ?(
-                isInTeam ? <button className="btn btn-primary btn-block" onClick={() => this.sellAthlete(data.athlete.athleteId)}>Sprzedaj</button> :
-              <button className="btn btn-primary btn-block" onClick={() => this.buyAthlete(data.athlete.athleteId)}>Kup</button>) :
-              <span className="m-2 spinner-border spinner-border-lg"></span>}
-               {this.state.isTransfered ? <TransferMarketListModal message={this.state.message} show={this.state.addModalShow} onHide={addModalClose} /> : <div></div>}
-                {/* <TransferMarketListModal message={this.state.message} show={this.state.addModalShow} onHide={addModalClose} /> */}
 
-              
+              {this.state.isTransfered ? (
+                isInTeam ? <button className="btn btn-primary btn-block" onClick={() => this.sellAthlete(data.athlete.athleteId)}>Sprzedaj</button> :
+                  <button className="btn btn-primary btn-block" onClick={() => this.buyAthlete(data.athlete.athleteId)}>Kup</button>) :
+                <span className="m-2 spinner-border spinner-border-lg"></span>}
+              {this.state.isTransfered ? <TransferMarketListModal message={this.state.message} show={this.state.addModalShow} onHide={addModalClose} /> : <div></div>}
+              {/* <TransferMarketListModal message={this.state.message} show={this.state.addModalShow} onHide={addModalClose} /> */}
+
+
 
               <button className="btn btn-primary btn-block" onClick={this.props.history.goBack}>Zamknij</button>
             </div>
@@ -132,12 +159,15 @@ class RiderDetails extends React.Component {
             <div class=" col-sm-7  col justify-content-center" id="rightSide">
 
               <div class=" row" id="mainInfo">
-                <div class="col-sm-6 col text-center " id="riderNames">
+              {/* <div id="flagDiv" className="col-sm-4 d-flex justify-content-center align-items-center" >
+                              <ReactCountryFlag id="flag" countryCode={this.getCountryCode(data.athlete.nationality)} svg style={{ width: '5em', height: '5em', }} title="US" />
+                            </div> */}
+                <div class=" d-flex flex-column justify-content-center align-items-center  col-sm-12 m-3" id="riderNames">
                   <h1 >{data.athlete.firstName} {data.athlete.surname}</h1>
                   {/* {this.props.match.params.id} */}
                   <h5>{data.clubName}</h5>
                 </div>
-                <div class="col-sm-6 row align-items-center justify-content-center " id="value">
+                {/* <div class="col-md-6 row align-items-center justify-content-center " id="value">
                   <table class="table font-weight-bold text-center">
                     <thead class="thead-dark ">
                       <tr>
@@ -146,7 +176,7 @@ class RiderDetails extends React.Component {
                       </tr>
                     </thead>
                   </table>
-                </div>
+                </div> */}
 
               </div>
 
@@ -157,8 +187,14 @@ class RiderDetails extends React.Component {
                 <table class="table font-weight-bold text-center">
                   <thead class="thead-dark ">
                     <tr>
+                      <th class="">Wartość: </th>
+                      <td>{data.athlete.value} mln </td>
+                    </tr>
+                    <td></td>
+                      <td></td>
+                    <tr>
                       <th class="">Ostatni występ</th>
-              <td class="">{data.lastPerformance==null ? "Nie jechał":data.lastPerformance.points + data.lastPerformance.bonuses }</td>
+                      <td class="">{data.lastPerformance == null ? "Nie jechał" : data.lastPerformance.points + data.lastPerformance.bonuses}</td>
                     </tr>
                     <tr>
                       <td></td>

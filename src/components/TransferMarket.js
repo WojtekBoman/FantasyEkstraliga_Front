@@ -3,6 +3,9 @@ import athleteService from '../services/athlete-service';
 import authHeader from '../services/auth-header';
 import { Link } from "react-router-dom";
 import TransferMarketList from './TransferMarketList';
+import '../styles/squadTable.css';
+import ReactCountryFlag from "react-country-flag"
+
 
 class TransferMarket extends React.Component {
 
@@ -69,13 +72,13 @@ class TransferMarket extends React.Component {
     } else
 
       return (
-        <div className="container bg-light border rounded border-dark col-md-8" id="tableWindow">
+        <div className="container bg-light border rounded border-dark col-xl-8" id="tableWindow">
           <header>
             <div id="top" class="row ">
               <div class="col-sm-9">
                 <h1>Rynek Transferowy</h1><br /><br />
                 <div id="filters" class="row text-center font-weight-bold">
-                  <div class="col-sm-3">
+                  <div class="col-md-3">
                     <label>Kategoria</label>
                     <select class="form-control" id="kategoriaFrom" value={this.state.searchCategory} onChange={this.updateSearchCategory.bind(this)}>
                       <option value="" >Wszyscy</option>
@@ -85,7 +88,7 @@ class TransferMarket extends React.Component {
                     </select>
                   </div>
 
-                  <div class="col-sm-3">
+                  <div class="col-md-3">
                     <label >Wartość</label>
                     <select class="form-control" id="wartoscForm" value={this.state.searchValue} onChange={this.updateSearchValue.bind(this)}>
                       <option value="3" >Wszyscy</option>
@@ -95,13 +98,13 @@ class TransferMarket extends React.Component {
                       <option value="0.9">do 900 tys.</option><option value="1">do 1 mln</option><option value="1.1">do 1,1 mln</option>
                       <option value="1.2">do 1,2 mln</option><option value="1.3">do 1,3 mln</option><option value="1.4">do 1,4 mln</option>
                       <option value="1.5">do 1,5 mln</option><option value="1.6">do 1,6 mln</option><option value="1.7">do 1,7 mln</option>
-                      <option value="1.8">do 1,8 mln</option><option value="1.9">do 1,9 mln</option><option value="2">do 2 mld</option>
+                      <option value="1.8">do 1,8 mln</option><option value="1.9">do 1,9 mln</option><option value="2">do 2 mln</option>
 
 
                     </select>
                   </div>
 
-                  <div class="col-sm-4">
+                  <div class="col-md-4">
                     <label >Klub</label>
                     <select class="form-control" id="klubForm" value={this.state.searchClub} onChange={this.updateSearchClub.bind(this)}>
                       <option value="" >Wszyscy</option>
@@ -115,21 +118,23 @@ class TransferMarket extends React.Component {
                       <option value="8">Motor Lublin</option>
                     </select>
                   </div>
-                  <div class="col-sm-2 d-flex align-items-end">
+                  <div class="col-md-2 d-flex align-items-end">
                     {/* <button className="btn btn-primary">Wyczyść</button> */}
                   </div>
 
                 </div>
               </div>
-              <div class="col-sm-3 d-flex align-items-center justify-content-center flex-column">
+              <div class="col-md-3 d-flex align-items-center justify-content-center flex-column">
                 <h4>Budżet:</h4>
-                <h3>{parseFloat(this.state.budget).toFixed(3)} mln</h3>
+                <h3><strong>{parseFloat(this.state.budget).toFixed(3)} mln</strong></h3>
               </div>
             </div>
 
             <hr className="my-4" />
           </header>
+          <div class="table-responsive-xl">
           <TransferMarketList rider_data={filtered3} all_clubs={this.state.clubs}  />
+          </div>
 
         </div>
       )

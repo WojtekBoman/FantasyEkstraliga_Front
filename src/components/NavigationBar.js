@@ -71,6 +71,9 @@ class NavigationBar extends React.Component {
                 <Link to="/ranking" className="nav-link" >
                         <li className="nav-item">Ranking</li>
                     </Link>
+                    <Link to="/stats" className="nav-link" >
+                        <li className="nav-item">Statystyki</li>
+                    </Link>
                     <li class="nav-item dropdown">
                   <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown">{currentUser.login}</a>
                   <div class="dropdown-menu">
