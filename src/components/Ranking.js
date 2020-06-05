@@ -1,5 +1,10 @@
 import React from 'react'
 import authHeader from '../services/auth-header'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCrown } from '@fortawesome/free-solid-svg-icons'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { faMotorcycle } from '@fortawesome/free-solid-svg-icons'
 
 class Ranking extends React.Component {
 
@@ -37,13 +42,13 @@ class Ranking extends React.Component {
                 </header>
 
                 {!this.state.loading ? (
-                    <table className="table">
+                    <table className="table table-striped">
                     <thead className="thead-dark">
                     <tr>
-                        <th scope="col">Pozycja</th>
-                        <th scope="col">Drużyna</th>
-                        <th scope='col'>Użytkownik</th>
-                        <th scope="col">Punkty</th>
+                        <th scope="col"><FontAwesomeIcon size="2x" icon={faCrown}/> Pozycja</th>
+                        <th scope="col"><FontAwesomeIcon size="2x" icon={faMotorcycle}/> Drużyna</th>
+                        <th scope='col'><FontAwesomeIcon size="2x" icon={faUser}/> Użytkownik</th>
+                        <th scope="col"><FontAwesomeIcon size="2x" icon={faStar}/> Punkty</th>
                     </tr>
                     </thead>
 
