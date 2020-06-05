@@ -25,7 +25,7 @@ class TeamBuilderTable extends React.Component {
     this.getTeam = this.getTeam.bind(this);
 
     this.state = {
-      athletes: null,
+      athletes: [],
       loading: true,
       message: null,
       team: null,
@@ -38,7 +38,7 @@ class TeamBuilderTable extends React.Component {
       teamName: "",
       points: 0,
       gameWeekPoints: 99,
-      userRanking: 999,
+      userRanking: 0,
       response: null,
       clubs: null,
       selected: 0,
@@ -117,7 +117,7 @@ class TeamBuilderTable extends React.Component {
     fetch(url, options).then(res => res.json())
       .then((res) => this.setState({
         response: res, athletes: res.team.athletes, budget: res.team.budget, teamName: res.team.name, points: res.team.points,
-        loading: false, isSold: true, addRoleModalShow: false, selected: res.team.athletes.length, clubs: res.clubs
+        loading: false, isSold: true, addRoleModalShow: false, selected: res.team.athletes.length, clubs: res.clubs, userRanking:res.ranking
       }));
 
     console.log("Riders", this.state.athletes);
@@ -239,7 +239,7 @@ class TeamBuilderTable extends React.Component {
               </div>
 
               <div class=" col-md-4 mt-1">
-                <button className="btn btn-primary btn-block btn-lg">Kup zawodnika
+                <button className="btn btn-primary btn-block btn-lg mb-4">Kup zawodnika
                    </button>
               </div>
               <div class=" col-md-4 alert alert-primary ">
@@ -255,13 +255,13 @@ class TeamBuilderTable extends React.Component {
           <div id="tablesAndStats" className="">
 
 
-            <div id="twoTablessContainer" className="">
+            <div id="twoTablessContainer" className="table-responsive"> 
 
               <table className="table">
                 <thead className="thead-dark">
                   <tr>
                     <th scope='col'>Info</th>
-                    <th scope="col">Zawodnik</th>
+                    <th scope="col" >Zawodnik</th>
                     <th scope="col">Klub</th>
                     <th scope="col">Wartość</th>
                     <th className="text-center" scope="col">Punkty</th>
@@ -279,13 +279,13 @@ class TeamBuilderTable extends React.Component {
                         </td>
 
                         <td className="align-middle">
-                          <div className="row d-flex align-items-center align-middle">
+                          <div className="row ">
 
-                            <div id="flagDiv">
+                            <div id="flagDiv" className="col-sm-2 d-flex justify-content-center">
                               <ReactCountryFlag id="flag" countryCode={this.getCountryCode(athlete.nationality)} svg style={{ width: '2.5em', height: '2.5em', }} title="US" />
                             </div>
 
-                            <div className="ml-3">
+                            <div className=" col-sm-10  ">
                               <div className=" d-flex align-items-center align-middle"> <span id="names" >{athlete.firstName} {athlete.surname}</span>
                                 {this.showRole(athlete) === "CAPTAIN" && <LetterAvatar letter={"C"} > </LetterAvatar>}{this.showRole(athlete) === "VICE" && <LetterAvatar letter={"V"} > </LetterAvatar>}
                               </div>
@@ -336,13 +336,13 @@ class TeamBuilderTable extends React.Component {
 
 
                         <td className="align-middle">
-                          <div className="row d-flex align-items-center align-middle">
+                          <div className="row  align-middle">
 
-                            <div id="flagDiv">
+                            <div id="flagDiv" className="col-sm-2 d-flex justify-content-center">
                               <ReactCountryFlag id="flag" countryCode={this.getCountryCode(athlete.nationality)} svg style={{ width: '2.5em', height: '2.5em', }} title="US" />
                             </div>
 
-                            <div className="ml-3">
+                            <div className="col-sm-10">
                               <div className=" d-flex align-items-center align-middle"><span id="names" >{athlete.firstName} {athlete.surname}</span>
                                 {this.showRole(athlete) === "CAPTAIN" && <LetterAvatar letter={"C"} > </LetterAvatar>}{this.showRole(athlete) === "VICE" && <LetterAvatar letter={"V"} > </LetterAvatar>}
                               </div>
@@ -363,33 +363,7 @@ class TeamBuilderTable extends React.Component {
               </table>
 
             </div>
-            {/* <div className="col-md-2" >
-            <div className="bg-dark" >
-              <div className="d-flex align-items-around flex-column bg-dark  p-2 pt-5">
-               
-              <div className="  d-flex justify-content-center flex-column align-items-center mb-3 p-2 bg-light" >
-                <FontAwesomeIcon size="4x" icon={faGlobeEurope} />
-              <div>  <h4>Ranking : <span>100</span></h4> </div> 
-              </div>
-              
-              <div className="d-flex justify-content-center flex-column align-items-center mb-3 p-2 bg-light">
-                <FontAwesomeIcon size="4x" icon={faStar} />
-                <h4>Punkty : <span>100</span></h4>
-              </div>
-              <div className="d-flex justify-content-center flex-column align-items-center p-2 bg-light">
-                <FontAwesomeIcon size="4x" icon={faMoneyBillWave} />
-                <h4>Budżet : <span>100</span></h4>
-              </div>
-              </div>
-              </div>
-            </div> */}
-            {/* <div className="d-flex flex-column  bg-info">
-              <div className="d=flex justify-content-center bg-danger">
-                <div className="text-light bg-dark p-2 rounded"><h3 className="">Punkty: 50</h3></div >
-                <div className="text-light bg-dark p-2 rounded"><h3>Ranking: 1</h3></div>
-                <div className="text-light bg-dark p-2 rounded"><h3>Budżet: 12 mln</h3></div>
-              </div>
-            </div> */}
+
           </div>
 
           <ChangeRoleModal reserve={reserve} showRole={this.showRole} sell={this.sellAthlete} changingRole={this.state.changingRole}
