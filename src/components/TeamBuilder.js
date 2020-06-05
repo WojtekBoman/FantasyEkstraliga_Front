@@ -78,7 +78,7 @@ class TeamBuilder extends React.Component {
 
         
 
-        console.log(this.state.teamData.team.athletes)
+        console.log(this.state.teamData)
 
         let substituteRiders = this.state.teamData.team.athletes.filter(rider => rider.teamRole.slice(0,3) == "SUB");
         let regularRiders = this.state.teamData.team.athletes.filter(rider => rider.teamRole.slice(0,3) != "SUB")

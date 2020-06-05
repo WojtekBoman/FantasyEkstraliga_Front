@@ -2,9 +2,10 @@ import React from 'react';
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-
+import { Redirect } from "react-router-dom";
 import TeamService from '../services/team-service';
 import authHeader from '../services/auth-header';
+import authService from '../services/auth-service';
 
 
 const required = value => {
@@ -53,10 +54,23 @@ class TeamCreator extends React.Component {
           headers : authHeader()
           };
         if (this.checkBtn.context._errors.length === 0){
-          fetch(url,options).then(res => res.text()).then(res => 
+          fetch(url,options).then(res => res.json()).then(res => 
             {
-              this.setState({message:res})
-              window.location.reload();
+             
+                if(res.team) {
+                console.log("RES",res);
+                const userToModify = authService.getCurrentUser();
+                userToModify['team'] = res.team.teamId
+                console.log("Modified user",userToModify);
+                localStorage.removeItem("player");
+                localStorage.setItem("player",JSON.stringify(userToModify));
+                this.setState({loading:false,message:res.info});
+                window.location.reload();
+                }else {
+                  this.setState({loading:false,message:res.info});
+                }
+              
+
             }
             )
           .catch(error => {
@@ -73,26 +87,7 @@ class TeamCreator extends React.Component {
             });
       
           } );
-            // TeamService.createTeam(this.state.teamName).then(
-            //     (res) => {
-            //       window.location.reload();
-            //       console.log(res);
-            //     },
-            //     error => {
-            //       const resMessage =
-            //         (error.response &&
-            //           error.response.data &&
-            //           error.response.data.message) ||
-            //         error.message ||
-            //         error.toString();
-        
-            //       this.setState({
-            //         loading: false,
-            //         message: resMessage
-            //       });
-            
-            //     }
-            // );
+           
             }else{
               this.setState({
                 loading: false
