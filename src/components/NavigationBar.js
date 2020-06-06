@@ -84,10 +84,9 @@ class NavigationBar extends React.Component {
                         <Link to={"/settings"} className="dropdown-item">Ustawienia</Link>
                     </div>
                   </li>
-                        <li className="nav-item">
-                            <a href="/logowanie" className="nav-link" onClick={this.logout}>
-                                Wyloguj
-                        </a></li>
+                  <li class="nav-item" onClick={this.logout}>
+                        <a id="logoutRef" class="nav-link" href="">Wyloguj</a>
+                    </li>
                     </Nav>)
                      : (<Nav className="ml-auto">
                     <Link to="/logowanie" className="nav-link" >
