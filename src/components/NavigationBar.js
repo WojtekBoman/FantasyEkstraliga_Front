@@ -8,6 +8,7 @@ import {
     Route,
     Link
   } from "react-router-dom";
+  import history from '../history';
 
 class NavigationBar extends React.Component {
 
@@ -36,7 +37,8 @@ class NavigationBar extends React.Component {
     }
 
     logout(){
-        AuthService.logout()
+        AuthService.logout();
+        history.push('/');
     }
 
     render() {
