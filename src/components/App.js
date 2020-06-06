@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
-    BrowserRouter as Router,
+    HashRouter as Router,
     Switch,
     Route,
     Link
@@ -27,6 +27,7 @@ import ChangePasswordForm from './ChangePasswordForm'
 import Ranking from './Ranking'
 import Stats from './Stats'
 
+import history from "../history"
 
 //IMPORT CSS
 import '../styles/app.css'
@@ -42,7 +43,7 @@ class App extends React.Component {
         console.log(JSON.parse(localStorage.getItem('player')));
 
         return (
-            <Router>
+            <Router basename={process.env.PUBLIC_URL} history={history}>
             <div>
                 <NavigationBar/>
                 <Switch>
