@@ -38,7 +38,7 @@ class NavigationBar extends React.Component {
 
     logout(){
         AuthService.logout();
-        history.push('/');
+        history.push('/logowanie');
     }
 
     render() {
