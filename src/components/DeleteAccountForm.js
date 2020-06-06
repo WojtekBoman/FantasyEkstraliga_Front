@@ -49,7 +49,7 @@ class DeleteAccountForm extends React.Component {
 
             const {password} = this.state;
            
-            let url = `http://localhost:8080/api/auth/deleteAccount?password=${password}`;
+            let url = `https://fantasy-ekstraliga.herokuapp.com/api/auth/deleteAccount?password=${password}`;
             let options = {
             method: 'POST',
             headers: authHeader()

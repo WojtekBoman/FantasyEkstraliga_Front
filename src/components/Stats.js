@@ -24,7 +24,7 @@ class Stats extends React.Component {
 
     componentDidMount() {
         this.setState({ loading: true });
-        let url = "http://localhost:8080/statistics";
+        let url = "https://fantasy-ekstraliga.herokuapp.com/statistics";
 
         let options = {
             method: 'GET',

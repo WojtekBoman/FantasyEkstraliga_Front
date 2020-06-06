@@ -54,7 +54,7 @@ class TeamBuilderTable extends React.Component {
   changeRole(athleteId, role) {
 
     this.setState({ changingRole: true });
-    let url = `http://localhost:8080/setRole?athleteId=${athleteId}&role=${role}`;
+    let url = `https://fantasy-ekstraliga.herokuapp.com/setRole?athleteId=${athleteId}&role=${role}`;
 
     let options = {
       method: 'POST',
@@ -70,7 +70,7 @@ class TeamBuilderTable extends React.Component {
   changeSub(regularId, subId) {
 
     this.setState({ changingRole: true });
-    let url = `http://localhost:8080/setSub?regularId=${regularId}&subId=${subId}`;
+    let url = `https://fantasy-ekstraliga.herokuapp.com/setSub?regularId=${regularId}&subId=${subId}`;
 
     let options = {
       method: 'POST',
@@ -87,7 +87,7 @@ class TeamBuilderTable extends React.Component {
 
     this.setState({ isSold: false });
     this.setState({ changingRole: true });
-    let url = `http://localhost:8080/sell?athleteId=${athleteId}`;
+    let url = `https://fantasy-ekstraliga.herokuapp.com/sell?athleteId=${athleteId}`;
 
     let options = {
       method: 'POST',
@@ -107,7 +107,7 @@ class TeamBuilderTable extends React.Component {
 
 
 
-    let url = "http://localhost:8080/teamAthletes";
+    let url = "https://fantasy-ekstraliga.herokuapp.com/teamAthletes";
 
     let options = {
       method: 'GET',

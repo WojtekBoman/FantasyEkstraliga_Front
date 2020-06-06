@@ -21,7 +21,7 @@ class TransferMarketListClick extends React.Component {
  buyAthlete(athleteId){
 
   this.setState({isLoaded:false});
-    let url = `http://localhost:8080/buy?athleteId=${athleteId}`;
+    let url = `https://fantasy-ekstraliga.herokuapp.com/buy?athleteId=${athleteId}`;
   
           let options = {
             method: 'POST',

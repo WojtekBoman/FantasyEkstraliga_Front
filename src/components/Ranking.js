@@ -31,7 +31,7 @@ class Ranking extends React.Component {
 
     componentDidMount() {
         this.setState({loading:true});
-        let url = "http://localhost:8080/ranking";
+        let url = "https://fantasy-ekstraliga.herokuapp.com/ranking";
   
         let options = {
           method: 'GET',
@@ -57,7 +57,7 @@ class Ranking extends React.Component {
         const parameter = this.state.typeSearch.charAt(0).toLocaleLowerCase() + this.state.typeSearch.slice(1);
         const {typeSearch} = this.state;
 
-        let url = `http://localhost:8080/getTeamBy${typeSearch}?${parameter}=${this.state.searchData}`;
+        let url = `https://fantasy-ekstraliga.herokuapp.com/getTeamBy${typeSearch}?${parameter}=${this.state.searchData}`;
 
         let options = {
             method: 'GET',

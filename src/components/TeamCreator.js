@@ -47,7 +47,7 @@ class TeamCreator extends React.Component {
           loading:true
         })
 
-        let url = `http://localhost:8080/createTeam?teamName=${this.state.teamName}`;
+        let url = `https://fantasy-ekstraliga.herokuapp.com/createTeam?teamName=${this.state.teamName}`;
 
         let options = {
           method: 'POST',

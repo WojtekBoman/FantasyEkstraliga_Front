@@ -40,7 +40,7 @@ class TeamBuilder extends React.Component {
   
         // console.log("Team",this.state.team);
   
-        let url = "http://localhost:8080/teamAthletes";
+        let url = "https://fantasy-ekstraliga.herokuapp.com/teamAthletes";
   
         let options = {
           method: 'GET',

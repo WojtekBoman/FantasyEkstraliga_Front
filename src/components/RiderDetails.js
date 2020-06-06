@@ -64,7 +64,7 @@ class RiderDetails extends React.Component {
   getTeam() {
     // this.setState({team: authService.getCurrentUser().team})
     //   console.log("Team",this.state.team);
-    let url = "http://localhost:8080/teamAthletes";
+    let url = "https://fantasy-ekstraliga.herokuapp.com/teamAthletes";
     let options = {
       method: 'GET',
       headers: authHeader()
@@ -77,7 +77,7 @@ class RiderDetails extends React.Component {
 
     this.setState({ isTransfered: false });
 
-    let url = `http://localhost:8080/sell?athleteId=${athleteId}`;
+    let url = `https://fantasy-ekstraliga.herokuapp.com/sell?athleteId=${athleteId}`;
 
     let options = {
       method: 'POST',
@@ -92,7 +92,7 @@ class RiderDetails extends React.Component {
   buyAthlete(athleteId) {
 
     this.setState({ isTransfered: false });
-    let url = `http://localhost:8080/buy?athleteId=${athleteId}`;
+    let url = `https://fantasy-ekstraliga.herokuapp.com/buy?athleteId=${athleteId}`;
 
     let options = {
       method: 'POST',

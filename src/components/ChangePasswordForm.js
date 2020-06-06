@@ -79,7 +79,7 @@ class ChangePasswordForm extends React.Component {
 
             const {oldPassword,newPassword,repeatedNewPassword} = this.state;
            
-            let url = `http://localhost:8080/api/auth/changePassword?oldPassword=${oldPassword}&newPassword1=${newPassword}&newPassword2=${repeatedNewPassword}`;
+            let url = `https://fantasy-ekstraliga.herokuapp.com/api/auth/changePassword?oldPassword=${oldPassword}&newPassword1=${newPassword}&newPassword2=${repeatedNewPassword}`;
             let options = {
             method: 'POST',
             headers: authHeader()

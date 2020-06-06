@@ -37,7 +37,7 @@ class TransferMarket extends React.Component {
 
   async getTeam(){
     this.setState({ isLoaded: false})
-    let url = "http://localhost:8080/teamAthletes";
+    let url = "https://fantasy-ekstraliga.herokuapp.com/teamAthletes";
 
     let options = {
       method: 'GET',

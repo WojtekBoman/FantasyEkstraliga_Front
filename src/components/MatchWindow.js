@@ -25,7 +25,7 @@ class MatchWindow extends React.Component {
     async getResults(matchWeek) {
         this.setState({loading:true})
         
-        let url = `http://localhost:8080/results?matchWeek=${matchWeek}`;
+        let url = `https://fantasy-ekstraliga.herokuapp.com/results?matchWeek=${matchWeek}`;
 
         let options = {
           method: 'GET',
