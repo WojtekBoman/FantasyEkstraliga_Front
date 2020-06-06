@@ -239,8 +239,8 @@ class TeamBuilderTable extends React.Component {
               </div>
 
               <div class=" col-md-4 mt-1">
-                <button className="btn btn-primary btn-block btn-lg mb-4">Kup zawodnika
-                   </button>
+                <Link style={{textDecoration:"none"}} to="/transferMarket"><button className="btn btn-primary btn-block btn-lg mb-4">Kup zawodnika
+                   </button></Link>
               </div>
               <div class=" col-md-4 alert alert-primary ">
                 <h5>Wybrano: <span>{this.state.selected}/10</span></h5>
