@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/FantasyEkstraliga_Front/static/css/main.ad5c1782.chunk.css",
-    "main.js": "/FantasyEkstraliga_Front/static/js/main.b05e05d9.chunk.js",
-    "main.js.map": "/FantasyEkstraliga_Front/static/js/main.b05e05d9.chunk.js.map",
+    "main.js": "/FantasyEkstraliga_Front/static/js/main.51c2ee98.chunk.js",
+    "main.js.map": "/FantasyEkstraliga_Front/static/js/main.51c2ee98.chunk.js.map",
     "runtime-main.js": "/FantasyEkstraliga_Front/static/js/runtime-main.3ea28cf2.js",
     "runtime-main.js.map": "/FantasyEkstraliga_Front/static/js/runtime-main.3ea28cf2.js.map",
     "static/css/2.de424728.chunk.css": "/FantasyEkstraliga_Front/static/css/2.de424728.chunk.css",
     "static/js/2.a26cd9bc.chunk.js": "/FantasyEkstraliga_Front/static/js/2.a26cd9bc.chunk.js",
     "static/js/2.a26cd9bc.chunk.js.map": "/FantasyEkstraliga_Front/static/js/2.a26cd9bc.chunk.js.map",
     "index.html": "/FantasyEkstraliga_Front/index.html",
-    "precache-manifest.414c409bfd7ba1c4149fa0e57b72d6b4.js": "/FantasyEkstraliga_Front/precache-manifest.414c409bfd7ba1c4149fa0e57b72d6b4.js",
+    "precache-manifest.fa6b6f7c58e68e860845a4b2e49c75db.js": "/FantasyEkstraliga_Front/precache-manifest.fa6b6f7c58e68e860845a4b2e49c75db.js",
     "service-worker.js": "/FantasyEkstraliga_Front/service-worker.js",
     "static/css/2.de424728.chunk.css.map": "/FantasyEkstraliga_Front/static/css/2.de424728.chunk.css.map",
     "static/css/main.ad5c1782.chunk.css.map": "/FantasyEkstraliga_Front/static/css/main.ad5c1782.chunk.css.map",
@@ -23,6 +23,6 @@
     "static/css/2.de424728.chunk.css",
     "static/js/2.a26cd9bc.chunk.js",
     "static/css/main.ad5c1782.chunk.css",
-    "static/js/main.b05e05d9.chunk.js"
+    "static/js/main.51c2ee98.chunk.js"
   ]
 }
