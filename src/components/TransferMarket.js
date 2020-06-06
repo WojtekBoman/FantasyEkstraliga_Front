@@ -11,6 +11,8 @@ class TransferMarket extends React.Component {
 
   constructor(props) {
     super(props);
+    this.getTeam = this.getTeam.bind(this);
+    this.getTeamNoLoading = this.getTeamNoLoading.bind(this);
     this.state = {
       isLoaded: false,
       items: [],
@@ -47,6 +49,19 @@ class TransferMarket extends React.Component {
     fetch(url, options).then(res => res.json())
       .then((res) => this.setState({
        budget: res.team.budget, isLoaded:true}));
+  }
+
+  async getTeamNoLoading(){
+    let url = "http://localhost:8080/teamAthletes";
+
+    let options = {
+      method: 'GET',
+      headers: authHeader()
+    };
+
+    fetch(url, options).then(res => res.json())
+      .then((res) => this.setState({
+       budget: res.team.budget}));
   }
 
   updateSearchCategory(event) { this.setState({ searchCategory: event.target.value.substr(0, 20) }); }
@@ -126,14 +141,14 @@ class TransferMarket extends React.Component {
               </div>
               <div class="col-md-3 d-flex align-items-center justify-content-center flex-column">
                 <h4>Budżet:</h4>
-                <h3><strong>{parseFloat(this.state.budget).toFixed(3)} mln</strong></h3>
+                <h3><strong>{parseFloat(this.state.budget).toFixed(2)} mln</strong></h3>
               </div>
             </div>
 
             <hr className="my-4" />
           </header>
           <div class="table-responsive-xl">
-          <TransferMarketList rider_data={filtered3} all_clubs={this.state.clubs}  />
+          <TransferMarketList rider_data={filtered3} all_clubs={this.state.clubs} getTeam={this.getTeamNoLoading} />
           </div>
 
         </div>

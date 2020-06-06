@@ -101,7 +101,7 @@ const TransferMarketList = (props) => {
             <td className="align-middle">{item.category}</td>
             <td className="align-middle">{item.value} mln</td>
             <td className="align-middle text-center">{item.points}</td>
-            <td className=" d-flex align-items-center justify-content-center"><TransferMarketListClick rider_id={item.athleteId}/></td>
+            <td className=" d-flex align-items-center justify-content-center"><TransferMarketListClick rider_id={item.athleteId} getTeam={props.getTeam}/></td>
             <td className="align-middle"><Link to={"riderDetails/" + item.athleteId} >
                           <FontAwesomeIcon id="infoIcon" color="black" size="2x" icon={faInfoCircle} /></Link>
                         </td>

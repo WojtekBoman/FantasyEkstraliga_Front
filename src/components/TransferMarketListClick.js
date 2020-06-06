@@ -29,7 +29,7 @@ class TransferMarketListClick extends React.Component {
             };
   
   
-            fetch(url,options).then(res => res.text()).then(res => this.setState({message:res,isLoaded:true})).then(res => console.log(res));
+            fetch(url,options).then(res => res.text()).then(res => this.setState({message:res,isLoaded:true}));
             this.setState({addModalShow:true});
   }
 
@@ -37,7 +37,7 @@ class TransferMarketListClick extends React.Component {
 
   render() {
     const isLoaded = this.state.isLoaded;
-    let addModalClose = () => this.setState({addModalShow:false});
+    let addModalClose = () => {this.setState({addModalShow:false});this.props.getTeam()};
 
     if (!isLoaded) {
       return (<div>
