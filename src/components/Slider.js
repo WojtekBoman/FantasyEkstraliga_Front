@@ -35,7 +35,7 @@ class Slider extends React.Component {
       </div>) 
       : (<div> <p class="titleOfScreen">Załóż drużynę już dzisiaj</p>
       <h3>Załóż bezpłatnie konto</h3>
-      <Link to="/logowanie"><Button variant="warning" className="buttons">Rejestracja</Button></Link>
+      <Link to="/rejestracja"><Button variant="warning" className="buttons">Rejestracja</Button></Link>
       <Link to="/logowanie"><Button variant="light" className="buttons">Logowanie</Button></Link></div>)}
     </Carousel.Caption>
   </Carousel.Item>
