@@ -46,9 +46,10 @@ class NavigationBar extends React.Component {
         console.log("showUserBoard :",showUserBoard)
 
         return (
-            <Navbar bg="dark" expand="lg" variant="dark" className="sticky-top">
+            <Navbar bg="dark" expand="lg" variant="dark" className="sticky-top" collapseOnSelect >
                 <Navbar.Brand href="/">Fantasy ekstraliga</Navbar.Brand>
-
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+             <Navbar.Collapse id="responsive-navbar-nav">
                 {currentUser ? (<Nav className="ml-auto">
                 <Link to="/mecze" className="nav-link" >
                         <li className="nav-item">Mecze</li>
@@ -95,7 +96,7 @@ class NavigationBar extends React.Component {
                     </Link>
                     </Nav>)}
 
-                
+                    </Navbar.Collapse>
             </Navbar>
         )
     }

@@ -29,9 +29,9 @@ class Slider extends React.Component {
     />
     <Carousel.Caption>
       {this.state.isLogged ? (<div>
-          <h1 class="display-2">Dziękujemy za udział w naszej grze !</h1>
+          <p class="titleOfScreen">Dziękujemy za udział w naszej grze !</p>
       </div>) 
-      : (<div> <h1 class="display-2">Załóż drużynę już dzisiaj</h1>
+      : (<div> <p class="titleOfScreen">Załóż drużynę już dzisiaj</p>
       <h3>Załóż bezpłatnie konto</h3>
       <Button variant="warning" className="buttons">Rejestracja</Button>
       <Button variant="light" className="buttons">Logowanie</Button></div>)}
@@ -45,7 +45,7 @@ class Slider extends React.Component {
     />
 
     <Carousel.Caption>
-    <h2 class="display-2">Poznaj zasady gry !</h2>
+    <p class="titleOfScreen">Poznaj zasady gry !</p>
     <a href="#info"><Button variant="outline-light">Zasady</Button></a>
     </Carousel.Caption>
   </Carousel.Item>
@@ -57,7 +57,7 @@ class Slider extends React.Component {
     />
 
     <Carousel.Caption>
-    <h2 class="display-2">Kontakt nigdy nie był tak prosty</h2>
+    <p class="titleOfScreen">Kontakt nigdy nie był tak prosty</p>
       <p>Wybierz dogodną opcję kontaku</p>
       <a href="#footer"><Button variant="outline-light">Kontakt</Button></a>
     </Carousel.Caption>

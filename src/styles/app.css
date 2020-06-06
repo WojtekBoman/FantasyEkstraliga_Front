@@ -13,3 +13,19 @@ background: -ms-linear-gradient(45deg, rgba(76,76,76,1) 0%, rgba(71,71,71,1) 4%,
 background: linear-gradient(45deg, rgba(76,76,76,1) 0%, rgba(71,71,71,1) 4%, rgba(89,89,89,1) 12%, rgba(102,102,102,1) 25%, rgba(0,0,0,1) 51%, rgba(17,17,17,1) 62%, rgba(43,43,43,1) 78%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313', GradientType=1 );
 }
+
+.link-button {
+  text-decoration: none;
+  margin:10px
+}
+
+
+  .titleOfScreen {
+    font-size: 100px;
+  }
+
+@media (max-width:818px) {
+  .titleOfScreen {
+    font-size: 30px;
+  }
+}

@@ -17,6 +17,7 @@ const required = value => {
   }
 }
 
+
 class LoginForm extends React.Component {
     
     constructor(props) {
@@ -24,6 +25,7 @@ class LoginForm extends React.Component {
         this.handleLogin = this.handleLogin.bind(this);
         this.onChangeLogin = this.onChangeLogin.bind(this);
         this.onChangePassword = this.onChangePassword.bind(this);
+        this.translateErrorMessage = this.translateErrorMessage.bind(this)
 
         this.state = {
             login: "",
@@ -31,6 +33,17 @@ class LoginForm extends React.Component {
             loading: false,
             message: ""
           };
+    }
+
+    translateErrorMessage(errorType){
+      switch (errorType) {
+        case 'Network Error':
+          return 'Błąd połączenia, spróbuj ponownie za jakiś czas !'
+        case "Error: Unauthorized":
+          return 'Niepoprawne dane logowania, spróbuj ponownie !'
+        default:
+          return 'Błąd połączenia';
+      }
     }
 
     onChangeLogin(e) {
@@ -71,7 +84,7 @@ class LoginForm extends React.Component {
   
             this.setState({
               loading: false,
-              message: resMessage
+              message: this.translateErrorMessage(resMessage)
             });
       
           }

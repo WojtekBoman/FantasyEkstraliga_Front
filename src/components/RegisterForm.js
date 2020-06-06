@@ -82,6 +82,7 @@ class RegisterForm extends React.Component {
         this.onChangeSurname = this.onChangeSurname.bind(this);
         this.onChangePassword = this.onChangePassword.bind(this);
         this.onChangeRepeatPassword = this.onChangeRepeatPassword.bind(this);
+        this.translateErrorMessage = this.translateErrorMessage.bind(this);
 
 
         this.state = {
@@ -94,6 +95,17 @@ class RegisterForm extends React.Component {
             successful: false,
             message: ""
         }
+    }
+
+    translateErrorMessage(errorType){
+      switch (errorType) {
+        case 'Network Error':
+          return 'Błąd połączenia, spróbuj ponownie za jakiś czas !'
+        case "Error: Unauthorized":
+          return 'Niepoprawne dane logowania, spróbuj ponownie !'
+        default:
+          return 'Błąd połączenia';
+      }
     }
 
     onChangeLogin(e) {
@@ -171,7 +183,7 @@ class RegisterForm extends React.Component {
                      error.message ||
                      error.toString();
                      this.setState({
-                         message: resMessage,
+                         message: this.translateErrorMessage(resMessage),
                          succesful: false
                      });
                      console.log(this.state.succesful);

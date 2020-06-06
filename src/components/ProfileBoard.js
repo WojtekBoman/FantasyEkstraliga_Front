@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Link } from "react-router-dom";
 import AuthService from "../services/auth-service"
 import TeamCreator from "./TeamCreator"
+import "../styles/profileInfo.css"
 
 class ProfileBoard extends React.Component {
 
@@ -22,28 +26,25 @@ class ProfileBoard extends React.Component {
         return(
             
             <div>
-            {currentUser.team ? (<div id="info" className="container">
-                <div className="jumbotron">
-                    <h3>
-                        <strong>{currentUser.login}</strong> Profile
-                    </h3>
-                    <hr className="my-4"/>
-                    <p>
-                    <strong>Token:</strong>{" "}
-                    {currentUser.token.substring(0, 20)} ...{" "}
-                    {currentUser.token.substr(currentUser.token.length - 20)}
-                    </p>
-                    <p>
-                    <strong>Email:</strong>{" "}
-                    {currentUser.email}
-                    </p>
-                    <strong>Authorities:</strong>
-                    <ul>
-                    {currentUser.roles &&
-                        currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
-                    </ul>
-                </div>
-      </div>) : (<TeamCreator />) }
+            {currentUser.team ? (<div className="container bg-light border rounded border-dark" id="profile-info">
+                    <header>
+                        <h3>Profil użytkownika <strong>{currentUser.login}</strong></h3>
+                        <hr className="my-4"></hr>
+                    </header>
+                    <div className="row">
+                        <div className="col-md-4 text-center">
+                            <FontAwesomeIcon size="7x" icon={faUser}/>
+                        </div>
+                        <div className="col-md-8">
+                        <p style={{fontSize:"20px"}}><strong>Imię:</strong> {currentUser.firstName}</p>
+                        <p style={{fontSize:"20px"}}><strong>Nazwisko:</strong> {currentUser.surname}</p>
+                        <p style={{fontSize:"20px"}}><strong>Email:</strong> {currentUser.email}</p>
+                        </div>
+                    </div>
+                    <Link className="link-button" to="/transferMarket"><button className="btn btn-dark btn-block">Rynek transferowy</button></Link>
+                    <Link className="link-button" to="/teamBuilder"><button className="btn btn-dark btn-block">Twoja drużyna</button></Link>
+                    <Link className="link-button" to="/settings"><button className="btn btn-dark btn-block">Ustawienia</button></Link>
+                </div>) : (<TeamCreator />) }
       </div>
         )
     }
