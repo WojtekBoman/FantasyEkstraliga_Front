@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/FantasyEkstraliga_Front/static/css/main.ad5c1782.chunk.css",
-    "main.js": "/FantasyEkstraliga_Front/static/js/main.7d01d7d7.chunk.js",
-    "main.js.map": "/FantasyEkstraliga_Front/static/js/main.7d01d7d7.chunk.js.map",
+    "main.js": "/FantasyEkstraliga_Front/static/js/main.b2955944.chunk.js",
+    "main.js.map": "/FantasyEkstraliga_Front/static/js/main.b2955944.chunk.js.map",
     "runtime-main.js": "/FantasyEkstraliga_Front/static/js/runtime-main.3ea28cf2.js",
     "runtime-main.js.map": "/FantasyEkstraliga_Front/static/js/runtime-main.3ea28cf2.js.map",
     "static/css/2.de424728.chunk.css": "/FantasyEkstraliga_Front/static/css/2.de424728.chunk.css",
-    "static/js/2.6f55ad0d.chunk.js": "/FantasyEkstraliga_Front/static/js/2.6f55ad0d.chunk.js",
-    "static/js/2.6f55ad0d.chunk.js.map": "/FantasyEkstraliga_Front/static/js/2.6f55ad0d.chunk.js.map",
+    "static/js/2.c60a08b9.chunk.js": "/FantasyEkstraliga_Front/static/js/2.c60a08b9.chunk.js",
+    "static/js/2.c60a08b9.chunk.js.map": "/FantasyEkstraliga_Front/static/js/2.c60a08b9.chunk.js.map",
     "index.html": "/FantasyEkstraliga_Front/index.html",
-    "precache-manifest.147824b6d53ab77210183abfbb65ba2c.js": "/FantasyEkstraliga_Front/precache-manifest.147824b6d53ab77210183abfbb65ba2c.js",
+    "precache-manifest.bea7a48e9a911e2b22318a12da4470fb.js": "/FantasyEkstraliga_Front/precache-manifest.bea7a48e9a911e2b22318a12da4470fb.js",
     "service-worker.js": "/FantasyEkstraliga_Front/service-worker.js",
     "static/css/2.de424728.chunk.css.map": "/FantasyEkstraliga_Front/static/css/2.de424728.chunk.css.map",
     "static/css/main.ad5c1782.chunk.css.map": "/FantasyEkstraliga_Front/static/css/main.ad5c1782.chunk.css.map",
-    "static/js/2.6f55ad0d.chunk.js.LICENSE.txt": "/FantasyEkstraliga_Front/static/js/2.6f55ad0d.chunk.js.LICENSE.txt",
+    "static/js/2.c60a08b9.chunk.js.LICENSE.txt": "/FantasyEkstraliga_Front/static/js/2.c60a08b9.chunk.js.LICENSE.txt",
     "static/media/Background1.jpg": "/FantasyEkstraliga_Front/static/media/Background1.cbc94b73.jpg",
     "static/media/Background2.jpg": "/FantasyEkstraliga_Front/static/media/Background2.2afe50e2.jpg",
     "static/media/Background3.jpg": "/FantasyEkstraliga_Front/static/media/Background3.fd37dffe.jpg"
@@ -21,8 +21,8 @@
   "entrypoints": [
     "static/js/runtime-main.3ea28cf2.js",
     "static/css/2.de424728.chunk.css",
-    "static/js/2.6f55ad0d.chunk.js",
+    "static/js/2.c60a08b9.chunk.js",
     "static/css/main.ad5c1782.chunk.css",
-    "static/js/main.7d01d7d7.chunk.js"
+    "static/js/main.b2955944.chunk.js"
   ]
 }
