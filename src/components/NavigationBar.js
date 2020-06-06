@@ -49,7 +49,7 @@ class NavigationBar extends React.Component {
 
         return (
             <Navbar bg="dark" expand="lg" variant="dark" className="sticky-top" collapseOnSelect >
-                <Navbar.Brand href="/">Fantasy ekstraliga</Navbar.Brand>
+                <Link to="/"><Navbar.Brand>Fantasy ekstraliga</Navbar.Brand></Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
              <Navbar.Collapse id="responsive-navbar-nav">
                 {currentUser ? (<Nav className="ml-auto">
