@@ -225,7 +225,7 @@ class TeamBuilderTable extends React.Component {
                 </div>
                 <div className="col-md-4">
                   <FontAwesomeIcon size="4x" icon={faMoneyBillWave} />
-                  <h4>Budżet: <span>{parseFloat(this.state.budget).toFixed(3)} mln</span></h4>
+                  <h4>Budżet: <span>{parseFloat(this.state.budget).toFixed(2)} mln</span></h4>
                 </div>
               </div>
 
