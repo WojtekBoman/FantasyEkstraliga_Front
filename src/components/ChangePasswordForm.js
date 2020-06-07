@@ -69,7 +69,8 @@ class ChangePasswordForm extends React.Component {
         if(this.state.newPassword !== this.state.repeatedNewPassword){
             this.setState({
                 loading:false,
-                message:"Podane hasła są różne"
+                message:"Podane hasła są różne",
+                alertStyle:"alert alert-danger"
             })
 
             return;

@@ -72,7 +72,7 @@ class TransferMarket extends React.Component {
     } else
 
       return (
-        <div className="container bg-light border rounded border-dark col-xl-8" id="tableWindow">
+        <div className="container bg-light border rounded border-dark col-xl-8 table-responsive" id="tableWindow">
           <header>
             <div id="top" class="row ">
               <div class="col-sm-9">

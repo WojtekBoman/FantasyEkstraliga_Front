@@ -37,6 +37,20 @@
     width: 40%;
 }
 
+@media(max-width:800px) {
+    #changePasswordForm {
+        width: 100%;
+    }
+
+    #regForm {
+        width: 100%;
+    }
+
+    #logForm {
+        width: 100%;
+    }
+}
+
 .loading {
     margin:150px auto
 }

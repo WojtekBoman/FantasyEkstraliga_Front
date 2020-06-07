@@ -181,20 +181,6 @@ class TeamBuilder extends React.Component {
 
                 </div>
 
-                {/* <div className="container bg-light border rounded border-dark col-xl-2" id="teamcreatorForm">
-                        <header>
-                            <h2>Rezerwowi</h2>
-                            <hr className="my-4"/>
-                            
-                            {this.state.loading ? (<div className="text-center container bg-light d-flex align-items-center justify-content-center flex-column">
-                        <span className="spinner-border spinner-border-lg"></span><h4>Wczytywanie... </h4>
-                      </div>) : (<RiderGrid styleToPass={{margin:'10% 0'}} iconSize="5x" colSize="col-sm-12" riders={this.state.substituteRidersData}/>)}
-                           
-                                
-                    
-                        </header>
-                </div> */}
-
                 <div className="container bg-light border rounded border-dark col-md-3" id="teamBuilderForm">
                 <header>
                     <h2>Statystyki</h2>
@@ -212,7 +198,7 @@ class TeamBuilder extends React.Component {
                             </div>
                         <div className="col-sm-12" style={{margin:"7% auto"}}>  
                             <FontAwesomeIcon size="6x" icon={faMoneyBillWave}/>
-                            <h3>Budżet : <span>{this.state.teamData.team.budget} mln</span></h3>
+                            <h3>Budżet : <span>{parseFloat(this.state.teamData.team.budget).toFixed(3)} mln</span></h3>
                             </div>
                             <div className="col-sm-12" style={{margin:"7% auto"}}>  
                             <FontAwesomeIcon size="6x" icon={faMotorcycle}/>

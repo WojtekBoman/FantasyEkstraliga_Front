@@ -74,7 +74,7 @@ class Ranking extends React.Component {
         console.log(this.state.foundTeamData)
 
         return(
-            <div className="container bg-light border rounded border-dark" id="ranking">
+            <div className="container bg-light border rounded border-dark table-responsive" id="ranking">
                 <header>
                     <h1>Ranking graczy</h1>
                     <hr className="my-4"></hr>
@@ -136,11 +136,12 @@ class Ranking extends React.Component {
                 )}
 
                 {this.state.foundTeamData && (
-                    <div>
+                    <div >
                     <header>
                         <h3>Znaleziono drużynę - {this.state.foundTeamData.team.name}</h3>
                         <hr className="my-4"></hr>
                     </header>
+                    
                     <table className="table table-striped">
                     <thead className="thead-dark">
                     <tr>
@@ -157,6 +158,7 @@ class Ranking extends React.Component {
                             <td>{this.state.foundTeamData.team.points}</td>
                     </tbody>
                     </table>
+                    
                     <hr className="my-4"></hr>
                     </div>
                 )}
