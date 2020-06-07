@@ -62,7 +62,6 @@ class NavigationBar extends React.Component {
                         <div class="dropdown-menu">
                               <Link to={"/teamBuilderTable"} className="dropdown-item">Tabela</Link>
                               <Link to={"/teamBuilder"} className="dropdown-item">Widok podstawowy</Link>
-                              <Link to={"/teamCreator"} className="dropdown-item">Stwórz drużynę</Link>
                           </div>
                         </li>
                     )}
