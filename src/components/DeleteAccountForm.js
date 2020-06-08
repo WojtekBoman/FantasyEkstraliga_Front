@@ -5,6 +5,7 @@ import CheckButton from "react-validation/build/button";
 import authHeader from "../services/auth-header"
 import {Link} from "react-router-dom";
 import AuthService from "../services/auth-service"
+import AreYouSureModal from './AreYouSureModal'
 
 const required = value => {
     if(!value) {
@@ -27,7 +28,8 @@ class DeleteAccountForm extends React.Component {
         this.state = {
             loading:false,
             message: "",
-            password:""
+            password:"",
+            showAYSmodal:false
         }
     }
 
@@ -45,38 +47,42 @@ class DeleteAccountForm extends React.Component {
 
         this.form.validateAll();
 
-        if (this.checkBtn.context._errors.length === 0 && window.confirm("Jesteś pewny ?")) {
+        if (this.checkBtn.context._errors.length === 0) {
 
-            const {password} = this.state;
+          this.setState({showAYSmodal:true,loading:false})
+
+        //     const {password} = this.state;
            
-            let url = `https://fantasy-ekstraliga.herokuapp.com/api/auth/deleteAccount?password=${password}`;
-            let options = {
-            method: 'POST',
-            headers: authHeader()
-          };
+        //     let url = `https://fantasy-ekstraliga.herokuapp.com/api/auth/deleteAccount?password=${password}`;
+        //     let options = {
+        //     method: 'POST',
+        //     headers: authHeader()
+        //   };
 
           
-          fetch(url,options)
-          .then(
-            response => {
-              if(response.status === 400) {
-                this.setState({
-                  loading:false,
-                  message:"Podałeś nieprawidłowe hasło"
-                })
-                console.log(response);
-              }else {
-                this.props.history.push('/')
-                window.location.reload();
-                AuthService.logout();
-                alert("Twoje konto zostało usunięte");
-              }
-            }
-            )
+        //   fetch(url,options)
+        //   .then(
+        //     response => {
+        //       if(response.status === 400) {
+        //         this.setState({
+        //           loading:false,
+        //           message:"Podałeś nieprawidłowe hasło"
+        //         })
+        //         console.log(response);
+        //       }else {
+        //         this.props.history.push('/')
+        //         window.location.reload();
+        //         AuthService.logout();
+        //         alert("Twoje konto zostało usunięte");
+        //       }
+        //     }
+        //     )
+        // }else{
+        //   this.setState({
+        //     loading: false
+        //   });
         }else{
-          this.setState({
-            loading: false
-          });
+          this.setState({loading:false})
         }
         
 
@@ -86,6 +92,8 @@ class DeleteAccountForm extends React.Component {
     render() {
 
        const {loading,message,password} = this.state;
+
+       const hideModal = () => this.setState({showAYSmodal:false});
 
         return (
             <div className="container bg-light border rounded border-dark" id="delAccForm">
@@ -110,6 +118,8 @@ class DeleteAccountForm extends React.Component {
                 )}
                 <span>Usuń konto</span>
               </button>
+
+              <AreYouSureModal show={this.state.showAYSmodal} onHide={hideModal} password={this.state.password} defaultValueOfDisplay={false}/>
 
                 {message && (
                   <div className="form-group">

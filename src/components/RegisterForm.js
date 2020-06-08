@@ -93,7 +93,8 @@ class RegisterForm extends React.Component {
             password: "",
             repeatPassword:"",
             successful: false,
-            message: ""
+            message: "",
+            loading:false
         }
     }
 
@@ -149,7 +150,8 @@ class RegisterForm extends React.Component {
  
          this.setState({
              message: "",
-             succesful: false
+             succesful: false,
+             loading:true
          });
  
  
@@ -171,7 +173,8 @@ class RegisterForm extends React.Component {
                  response => {
                      this.setState({
                          succesful: true,
-                         message: response.data.message
+                         message: response.data.message,
+                         loading:false
                      });
                      console.log(this.state.succesful);
                  },
@@ -184,7 +187,8 @@ class RegisterForm extends React.Component {
                      error.toString();
                      this.setState({
                          message: this.translateErrorMessage(resMessage),
-                         succesful: false
+                         succesful: false,
+                         loading:false
                      });
                      console.log(this.state.succesful);
                  }
@@ -195,7 +199,7 @@ class RegisterForm extends React.Component {
 
     render(){
 
-        const {succesful,message} = this.state;
+        const {loading,succesful,message} = this.state;
 
         return (
             <div className="container bg-light border rounded border-dark" id="regForm">
@@ -234,9 +238,9 @@ class RegisterForm extends React.Component {
                 <div className="form-group ">
                 <button
                 className="btn btn-block btn-dark"
-                disabled={this.state.loading}
+                disabled={loading}
               >
-                {this.state.loading && (
+                {loading && (
                   <span className="spinner-border spinner-border-sm"></span>
                 )}
                 <span>Stwórz konto</span>
