@@ -158,7 +158,7 @@ class RegisterForm extends React.Component {
          this.form.validateAll();
          
          if(this.state.password !== this.state.repeatPassword) {
-             this.setState({message : "Hasła są różne."});
+             this.setState({message : "Hasła są różne.",loading:false});
              return;
          }
  
@@ -193,7 +193,7 @@ class RegisterForm extends React.Component {
                      console.log(this.state.succesful);
                  }
              )
-         }
+         }else{this.setState({loading:false})}
  
      }
 

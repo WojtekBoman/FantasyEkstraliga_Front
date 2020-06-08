@@ -28,7 +28,7 @@ class StatsCurrent extends React.Component {
 
 
 
-            <div className="mt-5">
+            <div className="mt-5 table-responsive">
 
                 <table className="table ">
                     <thead className="thead-dark">

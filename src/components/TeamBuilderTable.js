@@ -37,7 +37,8 @@ class TeamBuilderTable extends React.Component {
       budget: -1,
       teamName: "",
       points: 0,
-      gameWeekPoints: 99,
+      gameWeekPoints: -1,
+      gameWeek: -1,
       userRanking: 0,
       response: null,
       clubs: null,
@@ -117,7 +118,8 @@ class TeamBuilderTable extends React.Component {
     fetch(url, options).then(res => res.json())
       .then((res) => this.setState({
         response: res, athletes: res.team.athletes, budget: res.team.budget, teamName: res.team.name, points: res.team.points,
-        loading: false, isSold: true, addRoleModalShow: false, selected: res.team.athletes.length, clubs: res.clubs, userRanking:res.ranking
+        loading: false, isSold: true, addRoleModalShow: false, selected: res.team.athletes.length, clubs: res.clubs, userRanking:res.ranking,
+        gameWeek:res.matchWeek,gameWeekPoints:res.points
       }));
 
     console.log("Riders", this.state.athletes);
@@ -225,7 +227,7 @@ class TeamBuilderTable extends React.Component {
                 </div>
                 <div className="col-md-4">
                   <FontAwesomeIcon size="4x" icon={faMoneyBillWave} />
-                  <h4>Budżet: <span>{parseFloat(this.state.budget).toFixed(3)} mln</span></h4>
+                  <h4>Budżet: <span>{parseFloat(this.state.budget).toFixed(2)} mln</span></h4>
                 </div>
               </div>
 
@@ -235,7 +237,7 @@ class TeamBuilderTable extends React.Component {
             <div className="row  text-center m-1 mt-4 mb-4">
 
               <div class=" col-md-4 alert alert-primary">
-                <h5>Kolejka 2: <span>{this.state.gameWeekPoints} pkt</span></h5>
+                <h5>Kolejka {this.state.gameWeek}: <span>{this.state.gameWeekPoints} pkt</span></h5>
               </div>
 
               <div class=" col-md-4 mt-1">

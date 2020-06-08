@@ -28,7 +28,7 @@ class StatsPast extends React.Component {
 
 
 
-            <div className="mt-5">
+            <div className="mt-5 table-responsive">
 
 			<table _ngcontent-c5="" className="table w-90">
 				<thead className="thead-dark">

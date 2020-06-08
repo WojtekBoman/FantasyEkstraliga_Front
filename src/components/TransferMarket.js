@@ -75,10 +75,10 @@ class TransferMarket extends React.Component {
         <div className="container bg-light border rounded border-dark col-xl-8 table-responsive" id="tableWindow">
           <header>
             <div id="top" class="row ">
-              <div class="col-sm-9">
+              <div className="col-sm-9 ">
                 <h1>Rynek Transferowy</h1><br /><br />
-                <div id="filters" class="row text-center font-weight-bold">
-                  <div class="col-md-3">
+                <div id="filters" class="row text-center font-weight-bold ">
+                  <div class="col-md-4">
                     <label>Kategoria</label>
                     <select class="form-control" id="kategoriaFrom" value={this.state.searchCategory} onChange={this.updateSearchCategory.bind(this)}>
                       <option value="" >Wszyscy</option>
@@ -88,7 +88,7 @@ class TransferMarket extends React.Component {
                     </select>
                   </div>
 
-                  <div class="col-md-3">
+                  <div class="col-md-4 ">
                     <label >Wartość</label>
                     <select class="form-control" id="wartoscForm" value={this.state.searchValue} onChange={this.updateSearchValue.bind(this)}>
                       <option value="3" >Wszyscy</option>
@@ -104,7 +104,7 @@ class TransferMarket extends React.Component {
                     </select>
                   </div>
 
-                  <div class="col-md-4">
+                  <div class="col-md-4 ">
                     <label >Klub</label>
                     <select class="form-control" id="klubForm" value={this.state.searchClub} onChange={this.updateSearchClub.bind(this)}>
                       <option value="" >Wszyscy</option>
@@ -114,19 +114,21 @@ class TransferMarket extends React.Component {
                       <option value="4">Włókniarz Częstochowa</option>
                       <option value="5">Apator Toruń</option>
                       <option value="6">GKM Grudziądz</option>
-                      <option value="7">Falubaz Zielonagóra</option>
+                      <option value="7">Falubaz Zielona Góra</option>
                       <option value="8">Motor Lublin</option>
                     </select>
                   </div>
-                  <div class="col-md-2 d-flex align-items-end">
-                    {/* <button className="btn btn-primary">Wyczyść</button> */}
-                  </div>
+                  {/* <div className="col-md-2 d-flex align-items-end bg-warning">
+                    <button className="btn btn-primary">Wyczyść</button>
+                    
+                  </div> */}
 
                 </div>
               </div>
-              <div class="col-md-3 d-flex align-items-center justify-content-center flex-column">
-                <h4>Budżet:</h4>
-                <h3><strong>{parseFloat(this.state.budget).toFixed(3)} mln</strong></h3>
+              <div className="col-md-3 d-flex align-items-end justify-content-center mt-3 ">
+              <h5>  <span className="alert alert-primary">
+                Budżet: <strong>{parseFloat(this.state.budget).toFixed(2)} mln</strong>
+                </span></h5>
               </div>
             </div>
 
