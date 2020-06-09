@@ -51,7 +51,7 @@ class Stats extends React.Component {
         console.log("ridres main", this.state.riders)
 
         return (
-            <div className="container bg-light border rounded border-dark" id="tableWindow">
+            <div className="container bg-light border rounded border-dark shadow-container" id="tableWindow">
                 <header>
                     <h1>Statystyki zawodników</h1>
                     <br />

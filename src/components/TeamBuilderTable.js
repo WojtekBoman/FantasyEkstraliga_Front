@@ -199,13 +199,13 @@ class TeamBuilderTable extends React.Component {
     console.log("Reserve", reserve);
 
     if (this.state.loading) {
-      return (<div className="text-center container bg-light border rounded d-flex align-items-center justify-content-center flex-column" style={{ height: 480 + 'px',margin:"150px auto" }}>
+      return (<div className="shadow-container text-center container bg-light border rounded d-flex align-items-center justify-content-center flex-column" style={{ height: 480 + 'px',margin:"150px auto" }}>
         <span className="spinner-border spinner-border-lg"></span><h4>Wczytywanie... </h4>
       </div>)
     } else
       return (
 
-        <div className="container bg-light border rounded border-dark" id="tableWindow">
+        <div className="container bg-light border rounded border-dark shadow-container" id="tableWindow">
 
           <header>
             <div id="nameLine" className="row">

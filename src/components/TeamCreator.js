@@ -101,7 +101,7 @@ class TeamCreator extends React.Component {
         
 
         return (
-            <div className="container bg-light border rounded border-dark" id="teamcreatorForm">
+            <div className="container bg-light border rounded border-dark shadow-container" id="teamcreatorForm">
                 <header className="text-center">
                     <h2 className="display-4">To już ostatnia prosta !</h2>
                     <hr className="my-4" />

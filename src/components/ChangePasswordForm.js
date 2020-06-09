@@ -113,7 +113,7 @@ class ChangePasswordForm extends React.Component {
         const {loading,message,oldPassword,repeatedNewPassword,newPassword} = this.state;
 
         return(
-        <div className="container bg-light border rounded border-dark" id="changePasswordForm">
+        <div className="container shadow-container bg-light border rounded border-dark" id="changePasswordForm">
             <header className="text-center">
                 <h2>Zmiana hasła</h2>
                 <hr className="my-4"></hr>

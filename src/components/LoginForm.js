@@ -104,7 +104,7 @@ class LoginForm extends React.Component {
       const {login,password,message,loading} = this.state;
 
         return(
-            <div className="container bg-light border rounded border-dark" id="logForm">
+            <div className="container bg-light border rounded border-dark shadow-container" id="logForm">
                  <header>
                     <h2>Wejdź do gry !</h2>
                 </header>

@@ -6,7 +6,7 @@ import { faUserCog } from '@fortawesome/free-solid-svg-icons'
 const Settings = (props) => {
     
     return(
-        <div className="container bg-light border rounded border-dark" id="settings">
+        <div className="container bg-light border rounded border-dark shadow-container" id="settings">
             <header className="text-center">
             <h3>Ustawienia</h3>
             <FontAwesomeIcon size="5x" icon={faUserCog}/>

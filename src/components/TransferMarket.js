@@ -66,13 +66,13 @@ class TransferMarket extends React.Component {
 
 
     if (!isLoaded) {
-      return (<div className="text-center container bg-light border rounded border-dark d-flex align-items-center justify-content-center flex-column" style={{ height: 480 + 'px',margin:"150px auto" }}>
+      return (<div className="shadow-container text-center container bg-light border rounded border-dark d-flex align-items-center justify-content-center flex-column" style={{ height: 480 + 'px',margin:"150px auto" }}>
         <span className="spinner-border spinner-border-lg"></span><h4>Wczytywanie... </h4>
       </div>)
     } else
 
       return (
-        <div className="container bg-light border rounded border-dark col-xl-8 table-responsive" id="tableWindow">
+        <div className="shadow-container container bg-light border rounded border-dark col-xl-8 table-responsive" id="tableWindow">
           <header>
             <div id="top" class="row ">
               <div className="col-sm-9 ">
