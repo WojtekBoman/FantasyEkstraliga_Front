@@ -47,7 +47,7 @@ class TransferMarketListClick extends React.Component {
 
       return (
         <div>
-        <button className="btn btn-primary" onClick={() =>this.buyAthlete(this.props.rider_id)}>Kup</button>
+        <button id={"buyButton"+this.props.rider_id} className="btn btn-primary" onClick={() =>this.buyAthlete(this.props.rider_id)}>Kup</button>
         <TransferMarketListModal message={this.state.message} show={this.state.addModalShow} onHide={addModalClose}/>
         </div>
       )

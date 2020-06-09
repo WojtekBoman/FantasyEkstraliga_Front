@@ -302,7 +302,7 @@ class TeamBuilderTable extends React.Component {
                         <td className="align-middle font-weight-light">{this.state.clubs[`${athlete.club}`]}</td>
                         <td className="align-middle">{athlete.value} mln</td>
                         <td className="align-middle text-center ">{athlete.points}</td>
-                        <td className="align-middle text-center"><button onClick={() => this.setState({ addRoleModalShow: true, athleteToChangeRole: athlete, changingRole: false })} className="btn btn-primary">Więcej</button></td>
+                        <td className="align-middle text-center"><button id={"moreButton"+athlete.athleteId} onClick={() => this.setState({ addRoleModalShow: true, athleteToChangeRole: athlete, changingRole: false })} className="btn btn-primary">Więcej</button></td>
                         {/* <td className="align-middle">{this.showRole(athlete)}</td> */}
                       </tr>)
                   }))}
@@ -357,7 +357,7 @@ class TeamBuilderTable extends React.Component {
                         <td className="align-middle font-weight-light">{this.getClubName(athlete.club)}</td>
                         <td className="align-middle">{athlete.value} mln</td>
                         <td className="align-middle text-center ">{athlete.points}</td>
-                        <td className="align-middle text-center"><button onClick={() => this.setState({ addRoleModalShow: true, athleteToChangeRole: athlete, changingRole: false })} className="btn btn-primary">Więcej</button></td>
+                        <td className="align-middle text-center"><button id={"moreButton"+athlete.athleteId} onClick={() => this.setState({ addRoleModalShow: true, athleteToChangeRole: athlete, changingRole: false })} className="btn btn-primary">Więcej</button></td>
                         {/* <td className="align-middle">{this.showRole(athlete)}</td> */}
                       </tr>)
                   }))}

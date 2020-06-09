@@ -77,9 +77,9 @@ class ChangeRoleModal extends React.Component {
            [ ( athlete.teamRole!=="SUB1" && athlete.teamRole!=="SUB2" && athlete.teamRole!=="SUB3" ?
             
             <div className="d-flex flex-column justify-content-center w-100">
-            <Button block variant="dark" onClick={()=>this.props.changeRole(athlete.athleteId, 1)}>Kapitan</Button>
-            <Button block   onClick={()=>this.props.changeRole(athlete.athleteId, 2)}>Vice-kapitan</Button>
-            <Button block   onClick={()=>this.props.sell(athlete.athleteId)}>Sprzedaj</Button>
+            <Button id="makeCapitan" block variant="dark" onClick={()=>this.props.changeRole(athlete.athleteId, 1)}>Kapitan</Button>
+            <Button id="makeVice" block   onClick={()=>this.props.changeRole(athlete.athleteId, 2)}>Vice-kapitan</Button>
+            <Button block id="sellButton"   onClick={()=>this.props.sell(athlete.athleteId)}>Sprzedaj</Button>
             <Link to={"riderDetails/" + athlete.athleteId}> <Button  className="mt-2" block>Więcej informacji</Button> </Link>
             
           </div>:
@@ -113,7 +113,7 @@ class ChangeRoleModal extends React.Component {
          </Dropdown>
           
           }
-          <Button block className="mt-2"  onClick={()=>this.props.sell(athlete.athleteId)}>Sprzedaj</Button>
+          <Button id="sellButtonReserve" block className="mt-2"  onClick={()=>this.props.sell(athlete.athleteId)}>Sprzedaj</Button>
           <Link to={"riderDetails/" + athlete.athleteId}> <Button  className="mt-2" block>Więcej informacji</Button> </Link>
           
         </div>)]

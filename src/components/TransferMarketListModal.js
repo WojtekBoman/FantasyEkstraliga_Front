@@ -41,7 +41,7 @@ class TransferMarketListModal extends React.Component {
         </Modal.Body>
         <Modal.Footer> 
           <div className="col-sm-12 d-flex justify-content-center"> 
-          <Button className="col-sm-6" onClick={this.props.onHide}>OK</Button>
+          <Button id="okButton" className="col-sm-6" onClick={this.props.onHide}>OK</Button>
           </div>
         </Modal.Footer>
       </Modal>

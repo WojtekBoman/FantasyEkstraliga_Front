@@ -236,7 +236,7 @@ class RegisterForm extends React.Component {
                     <Input type="password" value={this.state.repeatPassword} onChange={this.onChangeRepeatPassword} validations={[required,vpassword]} className="form-control" id="exampleInputRepeatPassword" placeholder="Powtórz hasło"/>
                 </div>
                 <div className="form-group ">
-                <button
+                <button id="registerButton"
                 className="btn btn-block btn-dark"
                 disabled={loading}
               >

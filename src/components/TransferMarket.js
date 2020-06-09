@@ -81,10 +81,10 @@ class TransferMarket extends React.Component {
                   <div class="col-md-4">
                     <label>Kategoria</label>
                     <select class="form-control" id="kategoriaFrom" value={this.state.searchCategory} onChange={this.updateSearchCategory.bind(this)}>
-                      <option value="" >Wszyscy</option>
-                      <option value="senior">Senior</option>
-                      <option value="junior">Junior</option>
-                      <option value="obcokrajowiec">Obcokrajowiec</option>
+                      <option id="all" value="" >Wszyscy</option>
+                      <option id="seniorOption" value="senior">Senior</option>
+                      <option id="juniorOption" value="junior">Junior</option>
+                      <option id="obcoOption" value="obcokrajowiec">Obcokrajowiec</option>
                     </select>
                   </div>
 
@@ -107,15 +107,15 @@ class TransferMarket extends React.Component {
                   <div class="col-md-4 ">
                     <label >Klub</label>
                     <select class="form-control" id="klubForm" value={this.state.searchClub} onChange={this.updateSearchClub.bind(this)}>
-                      <option value="" >Wszyscy</option>
-                      <option value="1">Unia Leszno</option>
-                      <option value="2">Stal Gorzów</option>
-                      <option value="3">Sparta Wrocław</option>
-                      <option value="4">Włókniarz Częstochowa</option>
-                      <option value="5">Apator Toruń</option>
-                      <option value="6">GKM Grudziądz</option>
-                      <option value="7">Falubaz Zielona Góra</option>
-                      <option value="8">Motor Lublin</option>
+                      <option id="allClubs" value="" >Wszyscy</option>
+                      <option id="Les" value="1">Unia Leszno</option>
+                      <option id="Gor" value="2">Stal Gorzów</option>
+                      <option id="Wro" value="3">Sparta Wrocław</option>
+                      <option id="Cze" value="4">Włókniarz Częstochowa</option>
+                      <option id="Tor" value="5">Apator Toruń</option>
+                      <option id="Gru" value="6">GKM Grudziądz</option>
+                      <option id="Zie" value="7">Falubaz Zielona Góra</option>
+                      <option id="Lub" value="8">Motor Lublin</option>
                     </select>
                   </div>
                   {/* <div className="col-md-2 d-flex align-items-end bg-warning">

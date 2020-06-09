@@ -37,12 +37,13 @@ class Stats extends React.Component {
         fetch(url, options).then(res => res.json()).then(res => this.setState({ riders: res, loading: false }));
     }
 
-    handleChange(e) {
+    // handleChange(e) {
    
-        this.setState({
-            year: e.target.value
-        })
-    }
+    //     this.setState({
+    //         year: e.target.value
+    //     })
+    // }
+    handleChange = (selectedValue) =>{this.setState({year:selectedValue})}
 
 
 
@@ -61,9 +62,9 @@ class Stats extends React.Component {
                 <div className="">
 
                     <div className="d-flex justify-content-center">
-                        <ToggleButtonGroup type="radio" value={this.state.year} onChange={this.handleChange.bind(this)} name="years" >
+                        <ToggleButtonGroup type="radio" value={this.state.year} onChange={this.handleChange} name="years" >
                             <ToggleButton value={1}>Statystyki z obecnego sezonu</ToggleButton>
-                            <ToggleButton disabled value={2}>Statystyki z sezonu 2018</ToggleButton>
+                            <ToggleButton value={2}>Statystyki z sezonu 2018</ToggleButton>
                         </ToggleButtonGroup>
                     </div>
 
