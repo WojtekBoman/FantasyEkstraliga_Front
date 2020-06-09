@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "496e39e30283613815c36b5da482f42b",
+    "revision": "2d3daad1e36cea2bc08bdc42473cb31e",
     "url": "/FantasyEkstraliga_Front/index.html"
   },
   {
-    "revision": "440808cf751c0acb64aa",
+    "revision": "1356641e4eb59ff6d9aa",
     "url": "/FantasyEkstraliga_Front/static/css/2.de424728.chunk.css"
   },
   {
-    "revision": "44c521fa2be0fdd8a399",
-    "url": "/FantasyEkstraliga_Front/static/css/main.1f4bea12.chunk.css"
+    "revision": "b89061393a5fd3ae63c4",
+    "url": "/FantasyEkstraliga_Front/static/css/main.cf8e255b.chunk.css"
   },
   {
-    "revision": "440808cf751c0acb64aa",
-    "url": "/FantasyEkstraliga_Front/static/js/2.ebfdf86b.chunk.js"
+    "revision": "1356641e4eb59ff6d9aa",
+    "url": "/FantasyEkstraliga_Front/static/js/2.4fead345.chunk.js"
   },
   {
     "revision": "5e9b6f5c16b720e8a86875f97734673e",
-    "url": "/FantasyEkstraliga_Front/static/js/2.ebfdf86b.chunk.js.LICENSE.txt"
+    "url": "/FantasyEkstraliga_Front/static/js/2.4fead345.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "44c521fa2be0fdd8a399",
-    "url": "/FantasyEkstraliga_Front/static/js/main.51ef24a8.chunk.js"
+    "revision": "b89061393a5fd3ae63c4",
+    "url": "/FantasyEkstraliga_Front/static/js/main.5395375b.chunk.js"
   },
   {
     "revision": "9074d6194f55f0bc4f89",
