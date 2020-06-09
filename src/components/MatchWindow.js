@@ -64,7 +64,7 @@ class MatchWindow extends React.Component {
         const {loading} = this.state
 
        return( 
-       <div className="container bg-light border rounded border-dark" id="matchWindow">
+       <div className="container bg-light border rounded border-dark shadow-container" id="matchWindow">
                 <header>
                 <h3>Kolejka {this.state.actualMatchWeek}</h3>
                     <hr className="my-4"></hr>

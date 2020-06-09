@@ -49,6 +49,10 @@
     #logForm {
         width: 100%;
     }
+
+    #delAccForm {
+        width:100%;
+    }
 }
 
 .loading {

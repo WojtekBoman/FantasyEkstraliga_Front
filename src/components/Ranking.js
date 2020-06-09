@@ -74,7 +74,7 @@ class Ranking extends React.Component {
         console.log(this.state.foundTeamData)
 
         return(
-            <div className="container bg-light border rounded border-dark table-responsive" id="ranking">
+            <div className="shadow-container container bg-light border rounded border-dark table-responsive" id="ranking">
                 <header>
                     <h1>Ranking graczy</h1>
                     <hr className="my-4"></hr>

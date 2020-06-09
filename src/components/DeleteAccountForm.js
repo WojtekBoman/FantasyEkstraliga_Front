@@ -96,7 +96,7 @@ class DeleteAccountForm extends React.Component {
        const hideModal = () => this.setState({showAYSmodal:false});
 
         return (
-            <div className="container bg-light border rounded border-dark" id="delAccForm">
+            <div className="container shadow-container bg-light border rounded border-dark" id="delAccForm">
                 <header className="text-center">
                     <h1>Usuń konto</h1>
                     <hr className="my-4"></hr>

@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     width: theme.spacing(2),
     height: theme.spacing(2),
     marginLeft: theme.spacing(1),
-    fontSize: "small",
+    fontSize: "small"
   },
 }));
 

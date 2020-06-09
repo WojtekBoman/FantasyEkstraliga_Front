@@ -26,7 +26,7 @@ class ProfileBoard extends React.Component {
         return(
             
             <div>
-            {currentUser.team ? (<div className="container bg-light border rounded border-dark" id="profile-info">
+            {currentUser.team ? (<div className="container bg-light border rounded border-dark shadow-container" id="profile-info">
                     <header>
                         <h3>Profil użytkownika <strong>{currentUser.login}</strong></h3>
                         <hr className="my-4"></hr>

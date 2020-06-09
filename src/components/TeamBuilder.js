@@ -141,7 +141,7 @@ class TeamBuilder extends React.Component {
              
 
             <div className="row">
-                <div className={"container bg-light border rounded border-dark col-md-6"} id="teamBuilderForm">
+                <div className={"container bg-light border rounded border-dark col-md-6 shadow-container"} id="teamBuilderForm">
 
                 {this.state.teamData ? (<div>
                         <header>
@@ -181,7 +181,7 @@ class TeamBuilder extends React.Component {
 
                 </div>
 
-                <div className="container bg-light border rounded border-dark col-md-3" id="teamBuilderForm">
+                <div className="container bg-light border rounded border-dark col-md-3 shadow-container" id="teamBuilderForm">
                 <header>
                     <h2>Statystyki</h2>
                             <hr className="my-4"/>

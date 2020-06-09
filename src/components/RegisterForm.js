@@ -202,7 +202,7 @@ class RegisterForm extends React.Component {
         const {loading,succesful,message} = this.state;
 
         return (
-            <div className="container bg-light border rounded border-dark" id="regForm">
+            <div className="container bg-light border rounded border-dark shadow-container" id="regForm">
                 <Form onSubmit={this.handleRegister}
                      ref={c => {
                     this.form = c;
