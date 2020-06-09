@@ -202,7 +202,7 @@ class TeamBuilder extends React.Component {
                             </div>
                             <div className="col-sm-12" style={{margin:"7% auto"}}>  
                             <FontAwesomeIcon size="6x" icon={faMotorcycle}/>
-                            <h3>Kolejka: <span>2</span></h3>
+                            <h3>Kolejka {this.state.teamData.matchWeek}: <span>{this.state.teamData.points} pkt</span></h3>
                             </div>
                     </div>
                 
