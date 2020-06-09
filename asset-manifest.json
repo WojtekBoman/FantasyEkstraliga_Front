@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/FantasyEkstraliga_Front/static/css/main.620534e6.chunk.css",
-    "main.js": "/FantasyEkstraliga_Front/static/js/main.32cde1fb.chunk.js",
-    "main.js.map": "/FantasyEkstraliga_Front/static/js/main.32cde1fb.chunk.js.map",
+    "main.css": "/FantasyEkstraliga_Front/static/css/main.1f4bea12.chunk.css",
+    "main.js": "/FantasyEkstraliga_Front/static/js/main.324de612.chunk.js",
+    "main.js.map": "/FantasyEkstraliga_Front/static/js/main.324de612.chunk.js.map",
     "runtime-main.js": "/FantasyEkstraliga_Front/static/js/runtime-main.3ea28cf2.js",
     "runtime-main.js.map": "/FantasyEkstraliga_Front/static/js/runtime-main.3ea28cf2.js.map",
     "static/css/2.de424728.chunk.css": "/FantasyEkstraliga_Front/static/css/2.de424728.chunk.css",
     "static/js/2.92d506dd.chunk.js": "/FantasyEkstraliga_Front/static/js/2.92d506dd.chunk.js",
     "static/js/2.92d506dd.chunk.js.map": "/FantasyEkstraliga_Front/static/js/2.92d506dd.chunk.js.map",
     "index.html": "/FantasyEkstraliga_Front/index.html",
-    "precache-manifest.3ac848ee59f7ae82d607353ad1374393.js": "/FantasyEkstraliga_Front/precache-manifest.3ac848ee59f7ae82d607353ad1374393.js",
+    "precache-manifest.c871f37f4fa28f2ffdc2ec46c6bee915.js": "/FantasyEkstraliga_Front/precache-manifest.c871f37f4fa28f2ffdc2ec46c6bee915.js",
     "service-worker.js": "/FantasyEkstraliga_Front/service-worker.js",
     "static/css/2.de424728.chunk.css.map": "/FantasyEkstraliga_Front/static/css/2.de424728.chunk.css.map",
-    "static/css/main.620534e6.chunk.css.map": "/FantasyEkstraliga_Front/static/css/main.620534e6.chunk.css.map",
+    "static/css/main.1f4bea12.chunk.css.map": "/FantasyEkstraliga_Front/static/css/main.1f4bea12.chunk.css.map",
     "static/js/2.92d506dd.chunk.js.LICENSE.txt": "/FantasyEkstraliga_Front/static/js/2.92d506dd.chunk.js.LICENSE.txt",
     "static/media/Background1.jpg": "/FantasyEkstraliga_Front/static/media/Background1.cbc94b73.jpg",
     "static/media/Background2.jpg": "/FantasyEkstraliga_Front/static/media/Background2.2afe50e2.jpg",
@@ -23,7 +23,7 @@
     "static/js/runtime-main.3ea28cf2.js",
     "static/css/2.de424728.chunk.css",
     "static/js/2.92d506dd.chunk.js",
-    "static/css/main.620534e6.chunk.css",
-    "static/js/main.32cde1fb.chunk.js"
+    "static/css/main.1f4bea12.chunk.css",
+    "static/js/main.324de612.chunk.js"
   ]
 }
