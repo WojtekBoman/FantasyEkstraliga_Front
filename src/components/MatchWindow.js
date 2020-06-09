@@ -3,6 +3,8 @@ import authHeader from '../services/auth-header'
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
+import {Link} from "react-router-dom";
+import AuthService from "../services/auth-service"
 
 class MatchWindow extends React.Component {
 
@@ -62,6 +64,13 @@ class MatchWindow extends React.Component {
         console.log(this.state.matches)
 
         const {loading} = this.state
+
+        if(!AuthService.getCurrentUser()) return (
+            <div className="block-window container bg-light border rounded border-dark shadow-container text-center">
+                    <h3>Ekran tylko dla zalogowanych użytkowników</h3>
+                    <Link to="/logowanie"><button type="button" style={{width:"50%"}} className="btn btn-dark buttons">Przejdź do ekranu logowania</button></Link>
+            </div>
+        )
 
        return( 
        <div className="container bg-light border rounded border-dark shadow-container" id="matchWindow">

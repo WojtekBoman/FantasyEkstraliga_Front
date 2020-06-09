@@ -8,6 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCrown } from '@fortawesome/free-solid-svg-icons'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { faMotorcycle } from '@fortawesome/free-solid-svg-icons'
+import {Link} from "react-router-dom";
+import AuthService from "../services/auth-service"
 
 class Ranking extends React.Component {
 
@@ -72,6 +74,13 @@ class Ranking extends React.Component {
     render() {
 
         console.log(this.state.foundTeamData)
+
+        if(!AuthService.getCurrentUser()) return (
+            <div className="block-window container bg-light border rounded border-dark shadow-container text-center">
+                    <h3>Ekran tylko dla zalogowanych użytkowników</h3>
+                    <Link to="/logowanie"><button type="button" style={{width:"50%"}} className="btn btn-dark buttons">Przejdź do ekranu logowania</button></Link>
+            </div>
+        )
 
         return(
             <div className="shadow-container container bg-light border rounded border-dark table-responsive" id="ranking">

@@ -23,6 +23,13 @@ class ProfileBoard extends React.Component {
         const {currentUser} = this.state;
         console.log(AuthService.getCurrentUser());
 
+        if(!AuthService.getCurrentUser()) return (
+            <div className="block-window container bg-light border rounded border-dark shadow-container text-center">
+                    <h3>Ekran tylko dla zalogowanych użytkowników</h3>
+                    <Link to="/logowanie"><button type="button" style={{width:"50%"}} className="btn btn-dark buttons">Przejdź do ekranu logowania</button></Link>
+            </div>
+        )
+
         return(
             
             <div>

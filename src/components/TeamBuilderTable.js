@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import authHeader from '../services/auth-header';
-import authService from '../services/auth-service';
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
+import AuthService from "../services/auth-service"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import TransferMarketListModal from './TransferMarketListModal';
@@ -48,8 +48,7 @@ class TeamBuilderTable extends React.Component {
   }
 
   async componentDidMount() {
-    this.getTeam();
-
+    if(AuthService.getCurrentUser()) this.getTeam();
   }
 
   changeRole(athleteId, role) {
@@ -104,7 +103,7 @@ class TeamBuilderTable extends React.Component {
 
   async getTeam() {
 
-    this.setState({ team: authService.getCurrentUser().team })
+    this.setState({ team: AuthService.getCurrentUser().team })
 
 
 
@@ -197,6 +196,13 @@ class TeamBuilderTable extends React.Component {
     if (athletes !== null) reserve = athletes.filter((item) => { return (this.showRole(item) === "SUB1" || this.showRole(item) === "SUB2" || this.showRole(item) === "SUB3") });
     if (reserve !== null) reserve.sort(function (a, b) { let x = a.teamRole.toLowerCase(); let y = b.teamRole.toLowerCase(); return x < y ? -1 : x > y ? 1 : 0; });
     console.log("Reserve", reserve);
+
+    if(!AuthService.getCurrentUser()) return (
+      <div className="block-window container bg-light border rounded border-dark shadow-container text-center">
+              <h3>Ekran tylko dla zalogowanych użytkowników</h3>
+              <Link to="/logowanie"><button type="button" style={{width:"50%"}} className="btn btn-dark buttons">Przejdź do ekranu logowania</button></Link>
+      </div>
+  )
 
     if (this.state.loading) {
       return (<div className="shadow-container text-center container bg-light border rounded d-flex align-items-center justify-content-center flex-column" style={{ height: 480 + 'px',margin:"150px auto" }}>

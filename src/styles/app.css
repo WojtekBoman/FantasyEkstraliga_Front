@@ -41,3 +41,8 @@ background-size: cover;
 -moz-box-shadow: 17px 14px 17px 0px rgba(0,0,0,0.75);
 box-shadow: 17px 14px 17px 0px rgba(0,0,0,0.75);
 }
+
+.block-window {
+  margin:250px auto;
+  padding:60px
+}

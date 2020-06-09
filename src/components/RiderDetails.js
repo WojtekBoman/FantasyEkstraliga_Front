@@ -6,6 +6,8 @@ import TransferMarketListModal from './TransferMarketListModal';
 import TransferMarketListClick from './TransferMarketListClick';
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import ReactCountryFlag from "react-country-flag"
+import {Link} from "react-router-dom";
+import AuthService from "../services/auth-service"
 
 import athleteService from '../services/athlete-service';
 
@@ -28,11 +30,12 @@ class RiderDetails extends React.Component {
   }
 
   async componentDidMount() {
+    if(AuthService.getCurrentUser()){
     const { data } = await athleteService.getAthleteById(this.props.match.params.id)
     this.setState({ data: data, })
     console.log(data);
     this.getTeam();
-
+    }
   }
   getCountryCode(country) {
     switch (country) {
@@ -113,6 +116,13 @@ class RiderDetails extends React.Component {
 
 
   render() {
+    if(!AuthService.getCurrentUser()) return (
+      <div className="block-window container bg-light border rounded border-dark shadow-container text-center">
+              <h3>Ekran tylko dla zalogowanych użytkowników</h3>
+              <Link to="/logowanie"><button type="button" style={{width:"50%"}} className="btn btn-dark buttons">Przejdź do ekranu logowania</button></Link>
+      </div>
+  )
+
     let addModalClose = () => this.setState({ addModalShow: false });
     const isLoaded = this.state.isLoaded;
     const data = this.state.data;
@@ -125,9 +135,7 @@ class RiderDetails extends React.Component {
     }
     console.log("Czy jest w druzynie", isInTeam);
 
-
-
-
+    
     if (!isLoaded) {
       return (<div className="text-center container bg-light border rounded border-dark d-flex align-items-center justify-content-center flex-column" style={{ height: 480 + 'px', margin: "150px auto" }}>
         <span className="spinner-border spinner-border-lg"></span><h4>Wczytywanie... </h4>

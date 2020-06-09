@@ -1,6 +1,5 @@
 import React from 'react';
 import authHeader from "../services/auth-header"
-import authService from "../services/auth-service"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGlobeEurope } from '@fortawesome/free-solid-svg-icons'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
@@ -9,7 +8,8 @@ import { faMotorcycle } from '@fortawesome/free-solid-svg-icons'
 import Rider from './Rider'
 import RiderGrid from './RiderGrid'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
+import AuthService from "../services/auth-service"
 
 class TeamBuilder extends React.Component {
 
@@ -36,10 +36,8 @@ class TeamBuilder extends React.Component {
     }
 
     async componentDidMount() {
-        // this.setState({team: authService.getCurrentUser().team})
-  
-        // console.log("Team",this.state.team);
-  
+        
+        if(AuthService.getCurrentUser()){
         let url = "https://fantasy-ekstraliga.herokuapp.com/teamAthletes";
   
         let options = {
@@ -50,8 +48,7 @@ class TeamBuilder extends React.Component {
   
           fetch(url,options).then(res => res.json())
           .then(res => {this.setState({teamData:res}); this.renderGrid() })
-        //   .then((res) => this.setState({athletes: res.athletes,loading:false})).then(() => this.renderGrid());
-
+        }
         
          
     }
@@ -136,10 +133,15 @@ class TeamBuilder extends React.Component {
 
     render() {
 
+        if(!AuthService.getCurrentUser()) return (
+            <div className="block-window container bg-light border rounded border-dark shadow-container text-center">
+                    <h3>Ekran tylko dla zalogowanych użytkowników</h3>
+                    <Link to="/logowanie"><button type="button" style={{width:"50%"}} className="btn btn-dark buttons">Przejdź do ekranu logowania</button></Link>
+            </div>
+        )
+
         return(
         <div>
-             
-
             <div className="row">
                 <div className={"container bg-light border rounded border-dark col-md-6 shadow-container"} id="teamBuilderForm">
 

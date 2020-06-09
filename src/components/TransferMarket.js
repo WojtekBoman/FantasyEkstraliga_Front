@@ -1,7 +1,8 @@
 import React from 'react';
 import athleteService from '../services/athlete-service';
 import authHeader from '../services/auth-header';
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
+import AuthService from "../services/auth-service"
 import TransferMarketList from './TransferMarketList';
 import '../styles/squadTable.css';
 import ReactCountryFlag from "react-country-flag"
@@ -29,12 +30,14 @@ class TransferMarket extends React.Component {
 
 
   async componentDidMount() {
+    if(AuthService.getCurrentUser()){
     const riders = await athleteService.getAllAthletes();
     const clubs = await athleteService.getAllClubs();
     this.setState({items: riders.data, clubs:clubs.data})
     this.getTeam();
     console.log(riders)
     console.log(this.state.items)
+    }
 
   }
 
@@ -80,7 +83,12 @@ class TransferMarket extends React.Component {
     let filtered2 = filtered1.filter((item) => { return (parseFloat(item.value.toString()) <= parseFloat(this.state.searchValue)) });
     let filtered3 = filtered2.filter((item) => { return item.club.toString().indexOf(this.state.searchClub) !== -1 });
     
-
+    if(!AuthService.getCurrentUser()) return (
+      <div className="block-window container bg-light border rounded border-dark shadow-container text-center">
+              <h3>Ekran tylko dla zalogowanych użytkowników</h3>
+              <Link to="/logowanie"><button type="button" style={{width:"50%"}} className="btn btn-dark buttons">Przejdź do ekranu logowania</button></Link>
+      </div>
+  )
 
     if (!isLoaded) {
       return (<div className="shadow-container text-center container bg-light border rounded border-dark d-flex align-items-center justify-content-center flex-column" style={{ height: 480 + 'px',margin:"150px auto" }}>
