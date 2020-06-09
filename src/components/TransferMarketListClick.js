@@ -37,7 +37,7 @@ class TransferMarketListClick extends React.Component {
 
   render() {
     const isLoaded = this.state.isLoaded;
-    let addModalClose = () => this.setState({addModalShow:false});
+    let addModalClose = () => {this.setState({addModalShow:false});this.props.getTeam()};
 
     if (!isLoaded) {
       return (<div>

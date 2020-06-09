@@ -11,6 +11,8 @@ class TransferMarket extends React.Component {
 
   constructor(props) {
     super(props);
+    this.getTeam = this.getTeam.bind(this);
+    this.getTeamNoLoading = this.getTeamNoLoading.bind(this);
     this.state = {
       isLoaded: false,
       items: [],
@@ -19,6 +21,7 @@ class TransferMarket extends React.Component {
       searchClub: '',
       clubs: [],
       budget:-1,
+      loadingBudget:false
             
     }
  
@@ -47,6 +50,20 @@ class TransferMarket extends React.Component {
     fetch(url, options).then(res => res.json())
       .then((res) => this.setState({
        budget: res.team.budget, isLoaded:true}));
+  }
+
+  async getTeamNoLoading(){
+    this.setState({ loadingBudget: true})
+    let url = "https://fantasy-ekstraliga.herokuapp.com/teamAthletes";
+
+    let options = {
+      method: 'GET',
+      headers: authHeader()
+    };
+
+    fetch(url, options).then(res => res.json())
+      .then((res) => this.setState({
+       budget: res.team.budget, loadingBudget:false}));
   }
 
   updateSearchCategory(event) { this.setState({ searchCategory: event.target.value.substr(0, 20) }); }
@@ -118,24 +135,24 @@ class TransferMarket extends React.Component {
                       <option id="Lub" value="8">Motor Lublin</option>
                     </select>
                   </div>
-                  {/* <div className="col-md-2 d-flex align-items-end bg-warning">
-                    <button className="btn btn-primary">Wyczyść</button>
-                    
-                  </div> */}
 
                 </div>
               </div>
               <div className="col-md-3 d-flex align-items-end justify-content-center mt-3 ">
-              <h5>  <span className="alert alert-primary">
-                Budżet: <strong>{parseFloat(this.state.budget).toFixed(2)} mln</strong>
-                </span></h5>
+                
+              {/* <h5>  <span className="alert alert-primary">
+                Budżet:  { this.state.loadingBudget ? "Przeliczanie..." : <strong>{parseFloat(this.state.budget).toFixed(2)} mln</strong>}
+                </span></h5> */}
+
+                <h5> <span className="alert alert-primary">Budżet:  <strong>{parseFloat(this.state.budget).toFixed(2)} mln</strong></span></h5>
+
               </div>
             </div>
 
             <hr className="my-4" />
           </header>
           <div class="table-responsive-xl">
-          <TransferMarketList rider_data={filtered3} all_clubs={this.state.clubs}  />
+          <TransferMarketList rider_data={filtered3} getTeam={this.getTeamNoLoading} all_clubs={this.state.clubs}  />
           </div>
 
         </div>
