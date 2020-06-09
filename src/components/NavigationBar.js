@@ -60,7 +60,7 @@ class NavigationBar extends React.Component {
                         <li class="nav-item dropdown">
                         <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown">Skład</a>
                         <div class="dropdown-menu">
-                              <Link id="tableLineupLink" to={"/teamBuilderTable"} className="dropdown-item">Tabela</Link>
+                              <Link id="tableLineupLink" to={"/teamBuilderTable"} className="dropdown-item">Zarządzanie składem</Link>
                               <Link id="gridLineupLink" to={"/teamBuilder"} className="dropdown-item">Widok podstawowy</Link>
                           </div>
                         </li>
