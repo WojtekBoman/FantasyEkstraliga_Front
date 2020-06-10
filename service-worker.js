@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/FantasyEkstraliga_Front/precache-manifest.75f7070592d6d663efdc69113e83177f.js"
+  "/FantasyEkstraliga_Front/precache-manifest.40d37c43aac573a3df0b7b565262d938.js"
 );
 
 self.addEventListener('message', (event) => {
