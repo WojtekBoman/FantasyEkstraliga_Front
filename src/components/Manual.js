@@ -30,7 +30,7 @@ const Manual = () => {
                 <hr className="my-4" />
                  <h3>Budżet</h3>
                 <p>
-                Każdy z graczy ma do wykorzystania 10 milionów wirtualnej waluty. Przy zakupie
+                Każdy z graczy ma do wykorzystania 8 milionów wirtualnej waluty. Przy zakupie
                 danego zawodnika do drużyny, budżet jest zmniejszany o wartość zawodnika. Ceny
                 zawodników są ustalane na podstawie ich wyników z poprzednich sezonów.
                 Jeśli gracz sprzeda zawodnika, otrzymuje z powrotem pieniądze, które może
