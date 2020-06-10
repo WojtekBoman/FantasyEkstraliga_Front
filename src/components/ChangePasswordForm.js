@@ -139,7 +139,7 @@ class ChangePasswordForm extends React.Component {
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleInputRepeatedOldPassword">Powtórz swoje stare hasło</label>
+                    <label for="exampleInputRepeatedOldPassword">Powtórz nowe hasło</label>
                     <Input type="password" className="form-control" value={repeatedNewPassword} onChange={this.onChangeRepeatedNewPassword} validations={[required,vpassword]}  id="exampleInputRepeatedOldPassword" placeholder="Powtórz nowe hasło"/>
                 </div>
 
