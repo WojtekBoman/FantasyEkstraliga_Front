@@ -20,8 +20,8 @@ const Settings = (props) => {
             <FontAwesomeIcon size="5x" icon={faUserCog}/>
             <hr className="my-4"></hr>
             </header>
-            <Link className="link-button" to="/changePassword"><button className="btn btn-dark btn-block">Zmień hasło</button></Link>
-            <Link className="link-button" to="/deleteAccount"><button  className="btn btn-dark btn-block">Usuń konto</button></Link>
+            <Link style={{textDecoration:"none"}} className="link-button" to="/changePassword"><button className="btn btn-dark btn-block">Zmień hasło</button></Link>
+            <Link style={{textDecoration:"none"}} className="link-button" to="/deleteAccount"><button  className="btn btn-dark btn-block">Usuń konto</button></Link>
         </div>
     )
 }

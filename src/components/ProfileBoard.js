@@ -48,9 +48,9 @@ class ProfileBoard extends React.Component {
                         <p style={{fontSize:"20px"}}><strong>Email:</strong> {currentUser.email}</p>
                         </div>
                     </div>
-                    <Link className="link-button" to="/transferMarket"><button className="btn btn-dark btn-block">Rynek transferowy</button></Link>
-                    <Link className="link-button" to="/teamBuilder"><button className="btn btn-dark btn-block">Twoja drużyna</button></Link>
-                    <Link className="link-button" to="/settings"><button className="btn btn-dark btn-block">Ustawienia</button></Link>
+                    <Link style={{textDecoration:"none"}} className="link-button" to="/transferMarket"><button className="btn btn-dark btn-block">Rynek transferowy</button></Link>
+                    <Link style={{textDecoration:"none"}} className="link-button" to="/teamBuilder"><button className="btn btn-dark btn-block">Twoja drużyna</button></Link>
+                    <Link style={{textDecoration:"none"}} className="link-button" to="/settings"><button className="btn btn-dark btn-block">Ustawienia</button></Link>
                 </div>) : (<TeamCreator />) }
       </div>
         )

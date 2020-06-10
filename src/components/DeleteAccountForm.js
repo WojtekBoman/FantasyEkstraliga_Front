@@ -136,7 +136,7 @@ class DeleteAccountForm extends React.Component {
                   </div>
                 )}
 
-                <Link to="/settings"><button style={{margin:"20px auto"}} className="btn btn-block btn-dark">Powrót</button></Link>
+                <Link style={{textDecoration:"none"}} to="/settings"><button style={{margin:"20px auto"}} className="btn btn-block btn-dark">Powrót</button></Link>
 
                 <CheckButton
                   style={{display:"none"}}
