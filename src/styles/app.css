@@ -30,9 +30,9 @@ background-size: cover;
     font-size: 100px;
   }
 
-@media (max-width:818px) {
+@media (max-width:1008px) {
   .titleOfScreen {
-    font-size: 30px;
+    font-size: 40px;
   }
 }
 

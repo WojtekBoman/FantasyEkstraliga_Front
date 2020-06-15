@@ -3,3 +3,10 @@
     padding: 50px;
     width: 30%;
 }
+
+
+@media (max-width: 970px) {
+    #settings{
+        width:100%;
+    }
+  }
